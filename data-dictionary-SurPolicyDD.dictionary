@@ -1,0 +1,267 @@
+{
+  "key" : "SurPolicyDD",
+  "name" : "NWM Demo Policy API Types",
+  "types" : {
+    "Holder" : {
+      "label" : "Holder",
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "label" : "firstName",
+          "type" : "string"
+        },
+        "lastName" : {
+          "label" : "lastName",
+          "type" : "string"
+        },
+        "email" : {
+          "label" : "email",
+          "type" : "string"
+        },
+        "phone" : {
+          "label" : "phone",
+          "type" : "string"
+        },
+        "dateOfBirth" : {
+          "label" : "dateOfBirth",
+          "type" : "localDate"
+        }
+      }
+    },
+    "Coverage" : {
+      "label" : "Coverage",
+      "type" : "object",
+      "properties" : {
+        "faceValue" : {
+          "label" : "faceValue",
+          "type" : "double"
+        },
+        "cashValue" : {
+          "label" : "cashValue",
+          "type" : "double"
+        },
+        "beneficiary" : {
+          "label" : "beneficiary",
+          "typeRef" : {
+            "typeName" : "Beneficiary"
+          }
+        }
+      }
+    },
+    "Beneficiary" : {
+      "label" : "Beneficiary",
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "label" : "name",
+          "type" : "string"
+        },
+        "email" : {
+          "label" : "email",
+          "type" : "string"
+        },
+        "relationship" : {
+          "label" : "relationship",
+          "type" : "string"
+        }
+      }
+    },
+    "Term" : {
+      "label" : "Term",
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "label" : "type",
+          "type" : "string"
+        },
+        "years" : {
+          "label" : "years",
+          "description" : "Term length in years. null for permanent policies.",
+          "type" : "long"
+        }
+      }
+    },
+    "Premium" : {
+      "label" : "Premium",
+      "type" : "object",
+      "properties" : {
+        "monthly" : {
+          "label" : "monthly",
+          "type" : "double"
+        },
+        "annual" : {
+          "label" : "annual",
+          "type" : "double"
+        },
+        "currency" : {
+          "label" : "currency",
+          "type" : "string"
+        }
+      }
+    },
+    "Policy" : {
+      "label" : "Policy",
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "label" : "id",
+          "type" : "string"
+        },
+        "policyNumber" : {
+          "label" : "policyNumber",
+          "type" : "string"
+        },
+        "type" : {
+          "label" : "type",
+          "type" : "string"
+        },
+        "status" : {
+          "label" : "status",
+          "type" : "string"
+        },
+        "otp_processing_allowed" : {
+          "label" : "otp_processing_allowed",
+          "description" : "Whether this policy can be serviced over the phone",
+          "type" : "boolean"
+        },
+        "holder" : {
+          "label" : "holder",
+          "typeRef" : {
+            "typeName" : "Holder"
+          }
+        },
+        "coverage" : {
+          "label" : "coverage",
+          "typeRef" : {
+            "typeName" : "Coverage"
+          }
+        },
+        "term" : {
+          "label" : "term",
+          "typeRef" : {
+            "typeName" : "Term"
+          }
+        },
+        "premium" : {
+          "label" : "premium",
+          "typeRef" : {
+            "typeName" : "Premium"
+          }
+        },
+        "effectiveDate" : {
+          "label" : "effectiveDate",
+          "type" : "localDate"
+        },
+        "expirationDate" : {
+          "label" : "expirationDate",
+          "type" : "localDate"
+        },
+        "createdAt" : {
+          "label" : "createdAt",
+          "type" : "date"
+        },
+        "updatedAt" : {
+          "label" : "updatedAt",
+          "type" : "date"
+        }
+      }
+    },
+    "PolicyInput" : {
+      "label" : "PolicyInput",
+      "type" : "object",
+      "properties" : {
+        "policyNumber" : {
+          "label" : "policyNumber",
+          "type" : "string",
+          "required" : true
+        },
+        "type" : {
+          "label" : "type",
+          "type" : "string",
+          "required" : true
+        },
+        "status" : {
+          "label" : "status",
+          "type" : "string",
+          "required" : true
+        },
+        "otp_processing_allowed" : {
+          "label" : "otp_processing_allowed",
+          "type" : "boolean"
+        },
+        "holder" : {
+          "label" : "holder",
+          "typeRef" : {
+            "typeName" : "Holder"
+          },
+          "required" : true
+        },
+        "coverage" : {
+          "label" : "coverage",
+          "typeRef" : {
+            "typeName" : "Coverage"
+          },
+          "required" : true
+        },
+        "term" : {
+          "label" : "term",
+          "typeRef" : {
+            "typeName" : "Term"
+          },
+          "required" : true
+        },
+        "premium" : {
+          "label" : "premium",
+          "typeRef" : {
+            "typeName" : "Premium"
+          },
+          "required" : true
+        },
+        "effectiveDate" : {
+          "label" : "effectiveDate",
+          "type" : "localDate",
+          "required" : true
+        },
+        "expirationDate" : {
+          "label" : "expirationDate",
+          "type" : "localDate"
+        }
+      }
+    },
+    "PolicyPatch" : {
+      "label" : "PolicyPatch",
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "label" : "status",
+          "type" : "string"
+        },
+        "otp_processing_allowed" : {
+          "label" : "otp_processing_allowed",
+          "type" : "boolean"
+        },
+        "coverage" : {
+          "label" : "coverage",
+          "typeRef" : {
+            "typeName" : "Coverage"
+          }
+        },
+        "premium" : {
+          "label" : "premium",
+          "typeRef" : {
+            "typeName" : "Premium"
+          }
+        },
+        "expirationDate" : {
+          "label" : "expirationDate",
+          "type" : "localDate"
+        }
+      }
+    }
+  },
+  "generatorInfo" : {
+    "generationTimestamp" : "2026-06-12T19:15:07.447951852Z",
+    "generatorName" : "OpenAPI",
+    "specificationVersion" : "1.0.0"
+  }
+}

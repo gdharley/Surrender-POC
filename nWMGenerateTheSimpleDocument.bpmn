@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:design="http://flowable.org/design" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://flowable.org/test" exporter="Flowable Design" exporterVersion="2026.1.0.RC1" design:palette="flowable-work-process-palette">
+  <process id="nWMGenerateTheSimpleDocument" name="NWM Generate the simple Document" isExecutable="true" flowable:candidateStarterGroups="flowableUser">
+    <extensionElements>
+      <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>
+      <design:creationdate><![CDATA[2026-06-25T21:46:14.402Z]]></design:creationdate>
+      <design:modificationdate><![CDATA[2026-06-25T21:46:14.402Z]]></design:modificationdate>
+    </extensionElements>
+    <serviceTask id="GenerateDocumentTask_3" name="Generate Document" flowable:delegateExpression="${generateDocumentService}" flowable:type="generate-document" flowable:extensionId="GenerateDocumentTask">
+      <extensionElements>
+        <flowable:templateKey><![CDATA[nWMBasicTemplateForPOC]]></flowable:templateKey>
+        <flowable:outputDocumentName><![CDATA[policyDoc]]></flowable:outputDocumentName>
+        <flowable:outputDocumentType><![CDATA[pdf]]></flowable:outputDocumentType>
+        <flowable:outputVariableName><![CDATA[policyDoc]]></flowable:outputVariableName>
+        <flowable:sameDeployment><![CDATA[true]]></flowable:sameDeployment>
+        <design:stencilid><![CDATA[GenerateDocumentTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <startEvent id="startnoneevent1" flowable:initiator="initiator" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>
+        <design:stencilid><![CDATA[StartNoneEvent]]></design:stencilid>
+      </extensionElements>
+    </startEvent>
+    <endEvent id="EndNoneEvent_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>
+      </extensionElements>
+    </endEvent>
+    <sequenceFlow id="SequenceFlow_5" sourceRef="GenerateDocumentTask_3" targetRef="EndNoneEvent_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_4" sourceRef="startnoneevent1" targetRef="GenerateDocumentTask_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <textAnnotation id="TextAnnotation_1">
+      <extensionElements>
+        <design:stencilid><![CDATA[TextAnnotation]]></design:stencilid>
+        <design:text><![CDATA[policy]]></design:text>
+      </extensionElements>
+      <text>policy</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_6">
+      <extensionElements>
+        <design:stencilid><![CDATA[TextAnnotation]]></design:stencilid>
+        <design:text><![CDATA[policyDoc]]></design:text>
+      </extensionElements>
+      <text>policyDoc</text>
+    </textAnnotation>
+    <association id="AssociationUndirected_2" sourceRef="TextAnnotation_1" targetRef="startnoneevent1" associationDirection="None">
+      <extensionElements>
+        <design:stencilid><![CDATA[AssociationUndirected]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Association_Undirected]]></design:stencilsuperid>
+      </extensionElements>
+    </association>
+    <association id="AssociationUndirected_7" sourceRef="TextAnnotation_6" targetRef="EndNoneEvent_3" associationDirection="None">
+      <extensionElements>
+        <design:stencilid><![CDATA[AssociationUndirected]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Association_Undirected]]></design:stencilsuperid>
+      </extensionElements>
+    </association>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_nWMGenerateTheSimpleDocument">
+    <bpmndi:BPMNPlane bpmnElement="nWMGenerateTheSimpleDocument" id="BPMNPlane_nWMGenerateTheSimpleDocument">
+      <bpmndi:BPMNShape bpmnElement="GenerateDocumentTask_3" id="BPMNShape_GenerateDocumentTask_3">
+        <omgdc:Bounds height="80.0" width="100.0" x="618.0" y="248.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startnoneevent1" id="BPMNShape_startnoneevent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="442.0" y="273.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndNoneEvent_3" id="BPMNShape_EndNoneEvent_3">
+        <omgdc:Bounds height="28.0" width="28.0" x="877.0" y="274.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TextAnnotation_1" id="BPMNShape_TextAnnotation_1">
+        <omgdc:Bounds height="50.0" width="120.0" x="537.0" y="173.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TextAnnotation_6" id="BPMNShape_TextAnnotation_6">
+        <omgdc:Bounds height="50.0" width="120.0" x="964.0" y="173.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="AssociationUndirected_2" id="BPMNEdge_AssociationUndirected_2" flowable:sourceDockerX="60.0" flowable:sourceDockerY="25.0" flowable:targetDockerX="15.0" flowable:targetDockerY="15.0">
+        <omgdi:waypoint x="537.0" y="198.0"></omgdi:waypoint>
+        <omgdi:waypoint x="457.0" y="198.0"></omgdi:waypoint>
+        <omgdi:waypoint x="457.0" y="273.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_4" id="BPMNEdge_SequenceFlow_4" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="472.0" y="288.0"></omgdi:waypoint>
+        <omgdi:waypoint x="618.0" y="288.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_5" id="BPMNEdge_SequenceFlow_5" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="718.0" y="288.0"></omgdi:waypoint>
+        <omgdi:waypoint x="877.0" y="288.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="AssociationUndirected_7" id="BPMNEdge_AssociationUndirected_7" flowable:sourceDockerX="60.0" flowable:sourceDockerY="25.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="964.0" y="198.0"></omgdi:waypoint>
+        <omgdi:waypoint x="891.0" y="198.0"></omgdi:waypoint>
+        <omgdi:waypoint x="891.0" y="274.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

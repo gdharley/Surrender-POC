@@ -1,0 +1,10 @@
+{
+  "format" : {
+    "prefix" : "SUR-",
+    "digits" : 3
+  },
+  "increment" : 1,
+  "start" : 0,
+  "name" : "SUR Case Sequence",
+  "key" : "sURCaseSequence"
+}

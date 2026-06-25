@@ -1,0 +1,92 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{instanceId}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 6,
+      "tabIndex" : 0,
+      "label" : "Instance Id",
+      "id" : "text1",
+      "type" : "text"
+    }, {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-single-select" ],
+        "stencilId" : "cloud-single-select"
+      },
+      "extraSettings" : {
+        "enableAutocomplete" : false,
+        "tagsEnabled" : false,
+        "preselectAll" : false,
+        "dataSource" : "Static",
+        "items" : [ {
+          "text" : "Approved",
+          "value" : "approved"
+        }, {
+          "text" : "Denied",
+          "value" : "denied"
+        } ],
+        "storage" : "Id",
+        "identity" : "value",
+        "linkTarget" : "_blank",
+        "validationPanelDisplay" : "show",
+        "multi" : false
+      },
+      "enabled" : true,
+      "labelAlign" : "top",
+      "value" : "{{status}}",
+      "ignore" : false,
+      "visible" : true,
+      "isRequired" : false,
+      "size" : 6,
+      "tabIndex" : 0,
+      "label" : "Status",
+      "id" : "single-select1",
+      "type" : "select"
+    } ]
+  }, {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text-area" ],
+        "stencilId" : "cloud-text-area"
+      },
+      "labelAlign" : "top",
+      "value" : "{{notes}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "label" : "Notes",
+      "id" : "text-area1",
+      "type" : "textarea"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "nWMDemoEmulateFraudEventForm",
+    "name" : "NWM Demo - Emulate Fraud Event Form",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

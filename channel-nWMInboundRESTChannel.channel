@@ -1,0 +1,11 @@
+{
+  "channelType" : "inbound",
+  "type" : "rest",
+  "channelEventKeyDetection" : {
+    "fixedValue" : "nWMFraudResults"
+  },
+  "deserializerType" : "json",
+  "authorizedGroups" : [ "flowableUser" ],
+  "name" : "NWM inbound REST Channel",
+  "key" : "nWMInboundRESTChannel"
+}

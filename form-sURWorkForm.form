@@ -1,0 +1,227 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-sub-panel" ],
+        "stencilId" : "cloud-sub-panel"
+      },
+      "labelAlign" : "top",
+      "value" : "{{request}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "collapsible" : false,
+        "collapsed" : false,
+        "showBorder" : false,
+        "saveButtonVisible" : true,
+        "saveButtonEnabled" : true,
+        "cancelButtonVisible" : true,
+        "cancelButtonEnabled" : true,
+        "hideCancelCrossButton" : false,
+        "layoutDefinition" : {
+          "rows" : [ {
+            "cols" : [ {
+              "size" : 7,
+              "type" : ""
+            }, {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-alert" ],
+                "stencilId" : "cloud-alert"
+              },
+              "labelAlign" : "top",
+              "value" : "Case Status : {{root.caseStatus}}",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "severity" : "success",
+                "defaultIcon" : true,
+                "closeIcon" : false,
+                "closeButton" : false
+              },
+              "size" : 5,
+              "id" : "alert1",
+              "type" : "alert"
+            } ]
+          }, {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-tabs" ],
+                "stencilId" : "cloud-tabs"
+              },
+              "labelAlign" : "top",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "tabsorder" : [ "tab-panel1", "tab-panel2" ],
+                "activetab" : "tab-panel1",
+                "showBorder" : false,
+                "forceRenderAllTabs" : false,
+                "display" : "Horizontal",
+                "sections" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-tab-panel" ],
+                    "stencilId" : "cloud-tab-panel"
+                  },
+                  "label" : "Request",
+                  "labelAlign" : "top",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "serverValidationMethod" : "GET",
+                    "layoutDefinition" : {
+                      "rows" : [ {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{requestorName}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : false,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 7,
+                          "tabIndex" : 0,
+                          "label" : "Requestor Name",
+                          "id" : "text1",
+                          "type" : "text"
+                        }, {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{policyId}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : false,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 5,
+                          "tabIndex" : 0,
+                          "label" : "Policy Id",
+                          "id" : "text2",
+                          "type" : "text"
+                        } ]
+                      }, {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-sub-form" ],
+                            "stencilId" : "cloud-sub-form"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{root.agent}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : false,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : false,
+                            "collapsible" : false,
+                            "collapsed" : false,
+                            "formRef" : "nWMAgentDetails"
+                          },
+                          "size" : 12,
+                          "id" : "sub-form2",
+                          "type" : "subform"
+                        } ]
+                      } ]
+                    }
+                  },
+                  "size" : 12,
+                  "id" : "tab-panel1",
+                  "type" : "panel"
+                }, {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-tab-panel" ],
+                    "stencilId" : "cloud-tab-panel"
+                  },
+                  "label" : "Policy Details",
+                  "labelAlign" : "top",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "serverValidationMethod" : "GET",
+                    "layoutDefinition" : {
+                      "rows" : [ {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-sub-form" ],
+                            "stencilId" : "cloud-sub-form"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{root.policy}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : false,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : true,
+                            "collapsible" : false,
+                            "collapsed" : false,
+                            "formRef" : "sURPolicyDataSubForm"
+                          },
+                          "size" : 12,
+                          "label" : "Policy details",
+                          "id" : "sub-form1",
+                          "type" : "subform"
+                        } ]
+                      } ]
+                    }
+                  },
+                  "size" : 12,
+                  "id" : "tab-panel2",
+                  "type" : "panel"
+                } ]
+              },
+              "size" : 12,
+              "tabIndex" : 0,
+              "id" : "tabs1",
+              "type" : "tabs"
+            } ]
+          } ]
+        }
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "id" : "sub-panel1",
+      "type" : "panel"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "sURWorkForm",
+    "name" : "SUR Work Form",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

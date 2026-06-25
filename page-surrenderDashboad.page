@@ -1,0 +1,483 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-sub-panel" ],
+        "stencilId" : "cloud-sub-panel"
+      },
+      "labelAlign" : "top",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "collapsible" : false,
+        "collapsed" : false,
+        "showBorder" : false,
+        "saveButtonVisible" : true,
+        "saveButtonEnabled" : true,
+        "cancelButtonVisible" : true,
+        "cancelButtonEnabled" : true,
+        "hideCancelCrossButton" : false,
+        "layoutDefinition" : {
+          "rows" : [ {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-output" ],
+                "stencilId" : "cloud-output"
+              },
+              "labelAlign" : "top",
+              "value" : "<p><span style=\"font-size: 18pt;\"><strong>NWM Surrender App</strong></span> <span style=\"font-size: 18pt;\">Dashboard</span></p>",
+              "defaultValue" : false,
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show"
+              },
+              "size" : 12,
+              "id" : "output1",
+              "type" : "htmlComponent"
+            } ]
+          }, {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "Component" ],
+                "stencilId" : "work-action"
+              },
+              "extraSettings" : {
+                "text" : "Start new surrender",
+                "script" : "{{example + 1}}",
+                "autoExecute" : false,
+                "alignment" : "left",
+                "iconPropName" : "mobile",
+                "iconAlignment" : "right",
+                "validationPanelDisplay" : "show",
+                "actionDefinitionKey" : "nWMStartNewSurrender",
+                "sendFullPayload" : true,
+                "mapFullResponse" : false,
+                "mapResponseInsideScope" : true,
+                "sendScopeIdToGetDefinition" : true,
+                "navigationUrl" : "#/case-view/case/{{$response.executionPayload.id}}"
+              },
+              "value" : ".",
+              "visible" : true,
+              "ignore" : false,
+              "primary" : false,
+              "labelAlign" : "top",
+              "enabled" : true,
+              "size" : 5,
+              "id" : "work-action1",
+              "type" : "workAction"
+            }, {
+              "size" : 7,
+              "type" : ""
+            } ]
+          } ]
+        }
+      },
+      "size" : 6,
+      "tabIndex" : 0,
+      "id" : "sub-panel1",
+      "type" : "panel"
+    }, {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-sub-panel" ],
+        "stencilId" : "cloud-sub-panel"
+      },
+      "labelAlign" : "top",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "collapsible" : false,
+        "collapsed" : false,
+        "showBorder" : false,
+        "saveButtonVisible" : true,
+        "saveButtonEnabled" : true,
+        "cancelButtonVisible" : true,
+        "cancelButtonEnabled" : true,
+        "hideCancelCrossButton" : false,
+        "layoutDefinition" : {
+          "rows" : [ {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "Component" ],
+                "stencilId" : "work-chart"
+              },
+              "label" : "Claims Opened",
+              "labelAlign" : "top",
+              "value" : "{{claimsOpen}}",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "feature" : "case-instance",
+                "filter" : "created",
+                "from" : "P-15D",
+                "to" : "P1D",
+                "subtype" : "barGraph",
+                "groupBy" : "day",
+                "reportType" : "frequency",
+                "scopeDefinitionKey" : "surrenderMainCase",
+                "showLegend" : true
+              },
+              "size" : 5,
+              "id" : "work-chart1",
+              "type" : "workChart"
+            }, {
+              "designInfo" : {
+                "stencilSuperIds" : [ "Component" ],
+                "stencilId" : "work-chart"
+              },
+              "label" : "Claims Closed",
+              "labelAlign" : "top",
+              "value" : "{{claimClosed}}",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "feature" : "case-instance",
+                "filter" : "finished",
+                "from" : "P-15D",
+                "to" : "P1D",
+                "subtype" : "barGraph",
+                "groupBy" : "day",
+                "reportType" : "frequency",
+                "scopeDefinitionKey" : "surrenderMainCase",
+                "showLegend" : true
+              },
+              "size" : 6,
+              "id" : "work-chart2",
+              "type" : "workChart"
+            }, {
+              "size" : 1,
+              "type" : ""
+            } ]
+          } ]
+        }
+      },
+      "size" : 6,
+      "tabIndex" : 0,
+      "id" : "sub-panel3",
+      "type" : "panel"
+    } ]
+  }, {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-sub-panel" ],
+        "stencilId" : "cloud-sub-panel"
+      },
+      "labelAlign" : "top",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "collapsible" : false,
+        "collapsed" : false,
+        "showBorder" : true,
+        "saveButtonVisible" : true,
+        "saveButtonEnabled" : true,
+        "cancelButtonVisible" : true,
+        "cancelButtonEnabled" : true,
+        "hideCancelCrossButton" : false,
+        "layoutDefinition" : {
+          "rows" : [ {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-output" ],
+                "stencilId" : "cloud-output"
+              },
+              "labelAlign" : "top",
+              "value" : "<p><span style=\"font-size: 14pt;\"><strong>All Surrender Claims&nbsp;</strong></span></p>",
+              "defaultValue" : false,
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show"
+              },
+              "size" : 12,
+              "id" : "output2",
+              "type" : "htmlComponent"
+            } ]
+          }, {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-datatable" ],
+                "stencilId" : "cloud-datatable"
+              },
+              "enabled" : true,
+              "extraSettings" : {
+                "dataSource" : "Rest",
+                "queryUrl" : "{{endpoints.platform}}/search/case-instances?filterId=all&caseDefinitionKey=surrenderMainCase",
+                "path" : "data",
+                "storage" : "Id",
+                "identity" : "value",
+                "linkTarget" : "_blank",
+                "validationPanelDisplay" : "show",
+                "infiniteScroll" : false,
+                "showPagination" : true,
+                "autoHidePagination" : true,
+                "clientPagination" : true,
+                "showTotalRecords" : false,
+                "pageSize" : 10,
+                "columns" : [ {
+                  "label" : "Case ID",
+                  "id" : "name",
+                  "accessor" : "name",
+                  "alignment" : "left",
+                  "filterable" : "true",
+                  "filterType" : "text",
+                  "sortable" : "true",
+                  "show" : true,
+                  "cellDefinition" : {
+                    "type" : "display",
+                    "subtype" : "custom",
+                    "config" : {
+                      "type" : "panelMono",
+                      "extraSettings" : {
+                        "children" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-custom-cell-component" ],
+                            "stencilId" : "cloud-custom-cell-component"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "<p><button style=\"background-color: #e6eaf1; color: #7c8490; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\"> {{$item.name}} </button></p>",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : false
+                          },
+                          "size" : 1,
+                          "id" : "cell-Rr7qAWovqn",
+                          "displayType" : "custom",
+                          "type" : "cellComponent"
+                        } ]
+                      }
+                    }
+                  }
+                }, {
+                  "label" : "Policy Number",
+                  "id" : "policy",
+                  "accessor" : "request.policyId",
+                  "alignment" : "left",
+                  "filterable" : "true",
+                  "filterType" : "text",
+                  "sortable" : "true",
+                  "show" : true,
+                  "cellDefinition" : {
+                    "type" : "display",
+                    "subtype" : "text",
+                    "config" : {
+                      "type" : "panelMono",
+                      "extraSettings" : {
+                        "children" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-cell-component" ],
+                            "stencilId" : "cloud-cell-component"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{$item.request.policyId}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : false
+                          },
+                          "size" : 1,
+                          "id" : "cell-LWQ8InbjnZ",
+                          "displayType" : "text",
+                          "escapeHtml" : false,
+                          "type" : "cellComponent"
+                        } ]
+                      }
+                    }
+                  }
+                }, {
+                  "label" : "Started By",
+                  "id" : "initiator",
+                  "accessor" : "initiator",
+                  "alignment" : "left",
+                  "filterable" : "true",
+                  "filterType" : "text",
+                  "sortable" : "true",
+                  "show" : true,
+                  "cellDefinition" : {
+                    "type" : "display",
+                    "subtype" : "userId",
+                    "config" : {
+                      "type" : "panelMono",
+                      "extraSettings" : {
+                        "children" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-cell-component" ],
+                            "stencilId" : "cloud-cell-component"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{flw.getUser($item.initiator).displayName}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : false
+                          },
+                          "size" : 1,
+                          "id" : "cell-q8DEXctPDd",
+                          "displayType" : "userId",
+                          "type" : "cellComponent"
+                        } ]
+                      }
+                    }
+                  }
+                }, {
+                  "label" : "Started",
+                  "id" : "started",
+                  "accessor" : "started",
+                  "alignment" : "left",
+                  "filterable" : "true",
+                  "filterType" : "text",
+                  "sortable" : "true",
+                  "show" : true,
+                  "cellDefinition" : {
+                    "type" : "display",
+                    "subtype" : "local-date",
+                    "config" : {
+                      "type" : "panelMono",
+                      "extraSettings" : {
+                        "children" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-cell-component" ],
+                            "stencilId" : "cloud-cell-component"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{flw.formatDate($item.started, 'DD/MM/YYYY HH:mm')}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : false
+                          },
+                          "size" : 1,
+                          "id" : "cell-vNgaVtUTVg",
+                          "displayType" : "local-date",
+                          "format" : "DD/MM/YYYY HH:mm",
+                          "type" : "cellComponent"
+                        } ]
+                      }
+                    }
+                  }
+                }, {
+                  "label" : "Case Status",
+                  "id" : "caseStatus",
+                  "accessor" : "caseStatus",
+                  "alignment" : "left",
+                  "filterable" : "true",
+                  "filterType" : "text",
+                  "sortable" : "true",
+                  "show" : true,
+                  "cellDefinition" : {
+                    "type" : "display",
+                    "subtype" : "custom",
+                    "config" : {
+                      "type" : "panelMono",
+                      "extraSettings" : {
+                        "children" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-custom-cell-component" ],
+                            "stencilId" : "cloud-custom-cell-component"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "<div>{{$item.caseStatus == 'Open' ? '<button style=\"background-color: #e6f2fa; color: #357abd; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\">Case Open</button>' : '' }}</div>\n<div>{{$item.caseStatus == 'Initiated - Waiting for Form' ? '<button style=\"background-color: #fef3c7; color: #92400e; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\">Initiated - Waiting for Form</button>' : '' }}</div>\n<div>{{$item.caseStatus == 'Closed - Cancelled' ? '<button style=\"background-color: #f5f3ff; color: #5b21b6; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\">Closed - Cancelled</button>' : '' }}</div>\n<div>{{$item.caseStatus == 'Closed - Expired' ? '<button style=\"background-color: #fff7ed; color: #9a3412; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\">Closed - Expired</button>' : '' }}</div>\n<div>{{$item.caseStatus == 'Closed - Withdrawn for special handling' ? '<button style=\"background-color: #fff7ed; color: #9a3412; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\">Closed-Withdrawn</button>' : '' }}</div>\n<div>{{$item.caseStatus == 'In Progress - Transaction Review'? '<button style=\"background-color: #e6f7ed; color: #166534; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\">In Progress</button>' : '' }}</div>\n<div>{{$item.caseStatus == 'Scheduled to Process' ? '<button style=\"background-color: #e6f7ed; color: #166534; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\">Scheduled</button>' : '' }}</div>\n<div>{{$item.caseStatus == 'Closed - Processed' ? '<button style=\"background-color: #e6f2fa; color: #357abd; font-weight: bold; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px;\">Closed - Processed</button>': '' }}</div>",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : false
+                          },
+                          "size" : 1,
+                          "id" : "cell-utbMjxy7UU",
+                          "displayType" : "custom",
+                          "type" : "cellComponent"
+                        } ]
+                      }
+                    }
+                  }
+                } ],
+                "sortableColumns" : false,
+                "showExportButton" : false,
+                "showFavoriteButton" : true,
+                "nodataPosition" : "middle-center",
+                "conditionalFormatting" : [ {
+                  "condition" : "{{flw.floor($rowIndex / 2) * 2 != $rowIndex}}",
+                  "styleClass" : null,
+                  "color" : null,
+                  "bgColor" : "#FAFAFA"
+                } ],
+                "response" : { },
+                "showRefreshButton" : true,
+                "dataPollingOnInit" : false,
+                "url" : "#/case-view/case/{{$row.id}}",
+                "target" : "_self",
+                "sortable" : true,
+                "multiSort" : true,
+                "sortAsc" : "asc",
+                "sortDesc" : "desc",
+                "sortPattern" : "{{$sortItem.id}}.{{$sortItem.direction}}",
+                "sortSeparator" : ";",
+                "filterable" : true,
+                "filterPattern" : "{{$filterItem.id}}={{$filterItem.value}}",
+                "filterSeparator" : "&",
+                "defaultShowFilters" : false
+              },
+              "labelAlign" : "top",
+              "value" : "{{$temp.claims}}",
+              "ignore" : false,
+              "visible" : true,
+              "isRequired" : false,
+              "size" : 12,
+              "tabIndex" : 0,
+              "id" : "datatable1",
+              "type" : "dataTable"
+            } ]
+          } ]
+        }
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "id" : "sub-panel2",
+      "type" : "panel"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "surrenderDashboad",
+    "name" : "Surrender Dashboad",
+    "description" : "",
+    "version" : "1",
+    "modelType" : "page",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-page-palette"
+  }
+}

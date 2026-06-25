@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:design="http://flowable.org/design" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://flowable.org/test" exporter="Flowable Design" exporterVersion="2026.1.0.RC1" design:palette="flowable-work-process-palette">
+  <process id="testForErin" name="Test for Erin" isExecutable="true" flowable:candidateStarterGroups="flowableUser">
+    <extensionElements>
+      <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>
+      <design:creationdate><![CDATA[2026-06-25T21:46:14.406Z]]></design:creationdate>
+      <design:modificationdate><![CDATA[2026-06-25T21:46:14.406Z]]></design:modificationdate>
+    </extensionElements>
+    <serviceTask id="ServiceRegistryTask_1" name="Service registry task" flowable:delegateExpression="${serviceRegistryService}" flowable:type="service-registry" flowable:extensionId="ServiceRegistryTask">
+      <extensionElements>
+        <flowable:serviceMapping serviceModelKey="SurPolicyService" operationKey="getPolicy"></flowable:serviceMapping>
+        <flowable:inputParameter name="id" value="${request.policyId}"></flowable:inputParameter>
+        <flowable:outputVariableName><![CDATA[policy]]></flowable:outputVariableName>
+        <design:stencilid><![CDATA[ServiceRegistryTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <userTask id="FormTask_3" name="Ready" flowable:assignee="${initiator}" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+        <design:stencilid><![CDATA[FormTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+      </extensionElements>
+    </userTask>
+    <serviceTask id="DmnTask_3" name="Determine bypass" flowable:type="dmn">
+      <extensionElements>
+        <flowable:field name="decisionTableReferenceKey">
+          <flowable:string><![CDATA[nWmRwstrictions]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="decisionTaskThrowErrorOnNoHits">
+          <flowable:string><![CDATA[false]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="fallbackToDefaultTenant">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="sameDeployment">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+        <flowable:decisionReferenceType><![CDATA[decisionTable]]></flowable:decisionReferenceType>
+        <design:stencilid><![CDATA[DmnTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+      </extensionElements>
+      <multiInstanceLoopCharacteristics isSequential="true" flowable:collection="${restrictions}" flowable:elementVariable="restriction">
+        <extensionElements>
+          <flowable:variableAggregation target="canBypass">
+            <variable source="bypassable" target="bypassable"></variable>
+          </flowable:variableAggregation>
+        </extensionElements>
+      </multiInstanceLoopCharacteristics>
+    </serviceTask>
+    <userTask id="FormTask_6" name="Done" flowable:assignee="${initiator}" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+        <design:stencilid><![CDATA[FormTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+      </extensionElements>
+    </userTask>
+    <serviceTask id="VariableActivity_6" name="Initialize variables" flowable:delegateExpression="${initVariablesService}" flowable:type="init-variables" flowable:extensionId="VariableActivity">
+      <extensionElements>
+        <flowable:overwrite><![CDATA[true]]></flowable:overwrite>
+        <flowable:variableMapping name="restrictions" valueExpression="${policy.restrictions}"></flowable:variableMapping>
+        <design:stencilid><![CDATA[VariableActivity]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <scriptTask id="ScriptTask_6" name="Script task" scriptFormat="javascript" flowable:autoStoreVariables="false">
+      <extensionElements>
+        <flowable:in source="canBypass" target="canBypass"></flowable:in>
+        <design:stencilid><![CDATA[ScriptTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+      </extensionElements>
+      <script><![CDATA[var canBypass = flw.getInput("canBypass")
+var canBypassBool = false
+// Iterate over the canBypass array
+for (var i = 0; i < canBypass.size(); i++) {
+    // Check if the bypassable property is true
+    if (canBypass.path(i).path('bypassable').asBoolean()) {
+        canIt = true;
+        break; // Exit the loop as soon as we find a true value
+    }
+}
+flw.setOutput("canBypassBool", canIt)]]></script>
+    </scriptTask>
+    <userTask id="FormTask_7" name="User task" flowable:assignee="${initiator}" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+        <design:stencilid><![CDATA[FormTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+      </extensionElements>
+    </userTask>
+    <startEvent id="startnoneevent1" flowable:initiator="initiator" flowable:formKey="sURCaseStartForm" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>
+        <design:stencilid><![CDATA[StartNoneEvent]]></design:stencilid>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="SequenceFlow_4" sourceRef="ServiceRegistryTask_1" targetRef="FormTask_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_5" sourceRef="FormTask_3" targetRef="VariableActivity_6">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_10" sourceRef="DmnTask_3" targetRef="FormTask_7">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_8" sourceRef="VariableActivity_6" targetRef="DmnTask_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_7" sourceRef="ScriptTask_6" targetRef="FormTask_6">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_9" sourceRef="FormTask_7" targetRef="ScriptTask_6">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_2" sourceRef="startnoneevent1" targetRef="ServiceRegistryTask_1">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_testForErin">
+    <bpmndi:BPMNPlane bpmnElement="testForErin" id="BPMNPlane_testForErin">
+      <bpmndi:BPMNShape bpmnElement="ServiceRegistryTask_1" id="BPMNShape_ServiceRegistryTask_1">
+        <omgdc:Bounds height="80.0" width="100.0" x="452.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FormTask_3" id="BPMNShape_FormTask_3">
+        <omgdc:Bounds height="80.0" width="100.0" x="643.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="DmnTask_3" id="BPMNShape_DmnTask_3">
+        <omgdc:Bounds height="80.0" width="100.0" x="973.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FormTask_6" id="BPMNShape_FormTask_6">
+        <omgdc:Bounds height="80.0" width="100.0" x="1484.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="VariableActivity_6" id="BPMNShape_VariableActivity_6">
+        <omgdc:Bounds height="80.0" width="100.0" x="802.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ScriptTask_6" id="BPMNShape_ScriptTask_6">
+        <omgdc:Bounds height="80.0" width="100.0" x="1305.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FormTask_7" id="BPMNShape_FormTask_7">
+        <omgdc:Bounds height="80.0" width="100.0" x="1108.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startnoneevent1" id="BPMNShape_startnoneevent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="317.0" y="261.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_8" id="BPMNEdge_SequenceFlow_8" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="902.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="973.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9" id="BPMNEdge_SequenceFlow_9" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="1208.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1305.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_7" id="BPMNEdge_SequenceFlow_7" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="1405.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1484.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_4" id="BPMNEdge_SequenceFlow_4" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="552.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="643.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_5" id="BPMNEdge_SequenceFlow_5" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="743.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="802.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_10" id="BPMNEdge_SequenceFlow_10" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="1073.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1090.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1090.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1108.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_2" id="BPMNEdge_SequenceFlow_2" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="347.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="452.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

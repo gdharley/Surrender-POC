@@ -1,0 +1,107 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "size" : 2,
+      "type" : ""
+    }, {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-sub-panel" ],
+        "stencilId" : "cloud-sub-panel"
+      },
+      "labelAlign" : "top",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "collapsible" : false,
+        "collapsed" : false,
+        "showBorder" : false,
+        "saveButtonVisible" : true,
+        "saveButtonEnabled" : true,
+        "cancelButtonVisible" : true,
+        "cancelButtonEnabled" : true,
+        "hideCancelCrossButton" : false,
+        "layoutDefinition" : {
+          "rows" : [ {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-alert" ],
+                "stencilId" : "cloud-alert"
+              },
+              "labelAlign" : "top",
+              "value" : "This form is for testing only and provides a means to demonstrate the flow when a client declines eSign",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "severity" : "info",
+                "defaultIcon" : true,
+                "closeIcon" : false,
+                "closeButton" : false
+              },
+              "size" : 12,
+              "id" : "alert1",
+              "type" : "alert"
+            } ]
+          }, {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-single-select" ],
+                "stencilId" : "cloud-single-select"
+              },
+              "extraSettings" : {
+                "enableAutocomplete" : false,
+                "tagsEnabled" : false,
+                "preselectAll" : false,
+                "dataSource" : "Static",
+                "items" : [ {
+                  "text" : "Client Completed eSign Document",
+                  "value" : "completed"
+                }, {
+                  "text" : "Client Declined eSign document",
+                  "value" : "declined"
+                } ],
+                "storage" : "Id",
+                "identity" : "value",
+                "linkTarget" : "_blank",
+                "validationPanelDisplay" : "show",
+                "multi" : false
+              },
+              "enabled" : true,
+              "labelAlign" : "top",
+              "value" : "{{eSignStatus}}",
+              "ignore" : false,
+              "visible" : true,
+              "isRequired" : false,
+              "size" : 12,
+              "tabIndex" : 0,
+              "label" : "Select desited Status",
+              "id" : "single-select1",
+              "type" : "select"
+            } ]
+          } ]
+        }
+      },
+      "size" : 7,
+      "tabIndex" : 0,
+      "id" : "sub-panel1",
+      "type" : "panel"
+    }, {
+      "size" : 3,
+      "type" : ""
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "nWMUpdateESignStatusToDemoClientDeclined",
+    "name" : "NWM Update eSign Status to demo Client Declined",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

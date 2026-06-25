@@ -1,0 +1,354 @@
+{
+  "type" : "REST",
+  "operations" : [ {
+    "key" : "createEnvelope",
+    "name" : "Create a signing envelope",
+    "description" : "Creates a signing envelope. Always returns envelope ID ENV-DEMO-001. The accountId should be taken from the accounts[0].accountId field returned by GET /esign/userinfo.",
+    "config" : {
+      "method" : "POST",
+      "url" : "/esign/envelopes"
+    },
+    "inputParameters" : [ {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "signerName",
+      "displayName" : "signerName"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "signerEmail",
+      "displayName" : "signerEmail"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "accountId",
+      "displayName" : "accountId",
+      "description" : "Account ID returned by the /esign/userinfo call"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "documentName",
+      "displayName" : "documentName"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "documentContent",
+      "displayName" : "documentContent",
+      "description" : "Base64-encoded document content"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "subject",
+      "displayName" : "subject"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "envelopeId",
+      "displayName" : "envelopeId"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "subject",
+      "displayName" : "subject"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "signerName",
+      "displayName" : "signerName"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "signerEmail",
+      "displayName" : "signerEmail"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "accountId",
+      "displayName" : "accountId",
+      "description" : "Account ID as supplied in the request"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "documentName",
+      "displayName" : "documentName"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "documentContent",
+      "displayName" : "documentContent",
+      "description" : "Base64-encoded document content as supplied in the request"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-15T19:34:43.528738966Z\"",
+      "type" : "date",
+      "name" : "createdAt",
+      "displayName" : "createdAt"
+    } ],
+    "type" : "create"
+  }, {
+    "key" : "getUserInfo",
+    "name" : "Get user info by email",
+    "description" : "Returns user info for a policy holder matching the given email address. Use the returned accountId in the create envelope call.",
+    "config" : {
+      "method" : "GET",
+      "url" : "/esign/userinfo"
+    },
+    "inputParameters" : [ {
+      "name" : "email",
+      "mappingName" : "email",
+      "displayName" : "email",
+      "type" : "string",
+      "required" : true,
+      "exampleData" : "\"a string value\"",
+      "description" : "Email address of the policy holder",
+      "queryParameter" : true,
+      "excludedFromBody" : true
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "sub",
+      "displayName" : "sub",
+      "description" : "Base64-encoded email used as subject identifier"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "name",
+      "displayName" : "name"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "email",
+      "displayName" : "email"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "given_name",
+      "displayName" : "given_name"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "family_name",
+      "displayName" : "family_name"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "[ {\n  \"accountId\" : \"DEMO-ACCOUNT-001\",\n  \"accountName\" : \"NWM Demo Account\",\n  \"isDefault\" : true\n} ]",
+      "type" : "array",
+      "name" : "accounts",
+      "displayName" : "accounts"
+    }, {
+      "name" : "errorResponse",
+      "displayName" : "errorResponse",
+      "source" : "responseBody",
+      "type" : "json",
+      "description" : "Error responses for this operation:\n404: User not found\n",
+      "applyMappingConfig" : "onError",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    }, {
+      "name" : "errorResponseCode",
+      "displayName" : "errorResponseCode",
+      "source" : "responseCode",
+      "type" : "integer",
+      "applyMappingConfig" : "onError",
+      "description" : "HTTP error response code",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    } ],
+    "type" : "lookup"
+  }, {
+    "name" : "Get envelope status",
+    "key" : "getEnvelopeStatus",
+    "inputParameters" : [ {
+      "displayName" : "envelopeId",
+      "name" : "envelopeId",
+      "type" : "string"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "envelopeId",
+      "displayName" : "envelopeId"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-15T19:34:43.529703085Z\"",
+      "type" : "date",
+      "name" : "completedAt",
+      "displayName" : "completedAt"
+    } ],
+    "config" : {
+      "method" : "GET",
+      "url" : "/esign/envelopes/${envelopeId}/status"
+    },
+    "type" : "lookup",
+    "description" : "Returns the status of an envelope. Always returns 'completed' regardless of the envelope ID supplied."
+  }, {
+    "name" : "List envelope documents",
+    "key" : "listEnvelopeDocuments",
+    "inputParameters" : [ {
+      "displayName" : "envelopeId",
+      "name" : "envelopeId",
+      "type" : "string"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "envelopeId",
+      "displayName" : "envelopeId"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "[ {\n  \"documentId\" : \"1\",\n  \"name\" : \"Policy Document\",\n  \"type\" : \"content\",\n  \"uri\" : \"/esign/envelopes/ENV-DEMO-001/documents/1/content\"\n} ]",
+      "type" : "array",
+      "name" : "documents",
+      "displayName" : "documents"
+    } ],
+    "config" : {
+      "method" : "GET",
+      "url" : "/esign/envelopes/${envelopeId}/documents"
+    },
+    "type" : "lookup",
+    "description" : "Returns the list of documents attached to the envelope. Always returns a single document."
+  }, {
+    "name" : "Get document content",
+    "key" : "getDocumentContent",
+    "inputParameters" : [ {
+      "displayName" : "envelopeId",
+      "name" : "envelopeId",
+      "type" : "string"
+    }, {
+      "displayName" : "documentId",
+      "name" : "documentId",
+      "type" : "string"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "documentId",
+      "displayName" : "documentId"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "envelopeId",
+      "displayName" : "envelopeId"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "contentType",
+      "displayName" : "contentType"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "data",
+      "displayName" : "data",
+      "description" : "Base64-encoded document content"
+    } ],
+    "config" : {
+      "method" : "GET",
+      "url" : "/esign/envelopes/${envelopeId}/documents/${documentId}/content"
+    },
+    "type" : "lookup",
+    "description" : "Returns document content as a base64-encoded string. contentType is always text/plain."
+  } ],
+  "config" : {
+    "baseUrl" : "https://demo-json-server-9cam.onrender.com/"
+  },
+  "key" : "genericEsignService",
+  "name" : "NWM Demo eSign API",
+  "description" : "DocuSign-style envelope signing flow for demos and prototyping. No authentication or API keys required.",
+  "generatorInfo" : {
+    "generationTimestamp" : "2026-06-15T19:34:43.530378226Z",
+    "generatorName" : "OpenAPI",
+    "specificationVersion" : "1.0.0"
+  }
+}

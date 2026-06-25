@@ -1,0 +1,10 @@
+{
+  "config" : { },
+  "icon" : "diagram-project/regular",
+  "ignoreConfirmationMessage" : true,
+  "signalName" : "surrenderMainCase",
+  "botKey" : "cmmn-start-case-instance-bot",
+  "name" : "NWM start New Surrender",
+  "key" : "nWMStartNewSurrender",
+  "formKey" : "sURCaseStartForm"
+}

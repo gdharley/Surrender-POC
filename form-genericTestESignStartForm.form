@@ -1,0 +1,63 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{signerEmail}}",
+      "defaultValue" : "sarah.thompson@example.com",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "label" : "Signer Email",
+      "id" : "text1",
+      "type" : "text"
+    } ]
+  }, {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-attachment" ],
+        "stencilId" : "cloud-attachment"
+      },
+      "labelAlign" : "top",
+      "value" : "{{document}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "autoupload" : true,
+        "downloadUrl" : "rest/file/{{id}}",
+        "allowDelete" : "newOnly",
+        "preview" : "none",
+        "itemsSource" : "local",
+        "sharePointStoreCopy" : false
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "label" : "Document",
+      "id" : "attachment1",
+      "type" : "upload"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "genericTestESignStartForm",
+    "name" : "Generic Test eSign Start form",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

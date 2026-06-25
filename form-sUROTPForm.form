@@ -1,0 +1,225 @@
+{
+  "outcomes" : [ {
+    "label" : "Approve",
+    "value" : "completed",
+    "visible" : null,
+    "enabled" : null,
+    "outcomeFormKey" : null,
+    "ignorePayload" : null,
+    "ignoreValidation" : null,
+    "hideErrors" : null,
+    "primary" : null,
+    "styleClass" : null,
+    "navigationUrl" : null
+  }, {
+    "label" : "Decline",
+    "value" : "declined",
+    "visible" : null,
+    "enabled" : null,
+    "outcomeFormKey" : null,
+    "ignorePayload" : null,
+    "ignoreValidation" : null,
+    "hideErrors" : null,
+    "primary" : null,
+    "styleClass" : null,
+    "navigationUrl" : null
+  } ],
+  "outcomevariablename" : "OTPOutcome",
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-sub-panel" ],
+        "stencilId" : "cloud-sub-panel"
+      },
+      "labelAlign" : "top",
+      "value" : "{{request}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "collapsible" : false,
+        "collapsed" : false,
+        "showBorder" : false,
+        "saveButtonVisible" : true,
+        "saveButtonEnabled" : true,
+        "cancelButtonVisible" : true,
+        "cancelButtonEnabled" : true,
+        "hideCancelCrossButton" : false,
+        "layoutDefinition" : {
+          "rows" : [ {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-accordion" ],
+                "stencilId" : "cloud-accordion"
+              },
+              "labelAlign" : "top",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "tabsorder" : [ "tab-panel3", "tab-panel4" ],
+                "initialSection" : 0,
+                "showBorder" : false,
+                "sections" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-tab-panel" ],
+                    "stencilId" : "cloud-tab-panel"
+                  },
+                  "label" : "Request",
+                  "labelAlign" : "top",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "serverValidationMethod" : "GET",
+                    "layoutDefinition" : {
+                      "rows" : [ {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{requestorName}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 6,
+                          "tabIndex" : 0,
+                          "label" : "Requestor Name",
+                          "id" : "text1",
+                          "type" : "text"
+                        }, {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{policyId}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 6,
+                          "tabIndex" : 0,
+                          "label" : "Policy Id",
+                          "id" : "text2",
+                          "type" : "text"
+                        } ]
+                      }, {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-sub-form" ],
+                            "stencilId" : "cloud-sub-form"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{root.agent}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : false,
+                            "collapsible" : false,
+                            "collapsed" : false,
+                            "formRef" : "nWMAgentDetails"
+                          },
+                          "size" : 12,
+                          "id" : "sub-form2",
+                          "type" : "subform"
+                        } ]
+                      } ]
+                    }
+                  },
+                  "size" : 12,
+                  "id" : "tab-panel3",
+                  "type" : "panel"
+                }, {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-tab-panel" ],
+                    "stencilId" : "cloud-tab-panel"
+                  },
+                  "label" : "Policy Details",
+                  "labelAlign" : "top",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "serverValidationMethod" : "GET",
+                    "layoutDefinition" : {
+                      "rows" : [ {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-sub-form" ],
+                            "stencilId" : "cloud-sub-form"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{root.policy}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "showBorder" : true,
+                            "collapsible" : false,
+                            "collapsed" : false,
+                            "formRef" : "sURPolicyDataSubForm"
+                          },
+                          "size" : 12,
+                          "label" : "Policy details",
+                          "id" : "sub-form3",
+                          "type" : "subform"
+                        } ]
+                      } ]
+                    }
+                  },
+                  "size" : 12,
+                  "id" : "tab-panel4",
+                  "type" : "panel"
+                } ],
+                "activetab" : "tab-panel3"
+              },
+              "size" : 12,
+              "id" : "accordion1",
+              "type" : "accordion"
+            } ]
+          } ]
+        }
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "id" : "sub-panel1",
+      "type" : "panel"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "sUROTPForm",
+    "name" : "SUR OTP Form",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

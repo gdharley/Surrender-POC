@@ -1,0 +1,224 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-html-component" ],
+        "stencilId" : "cloud-html-component"
+      },
+      "labelAlign" : "top",
+      "value" : "<p><span style=\"font-size: 24pt;\">Review Restrictions</span></p>",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "showBorder" : false
+      },
+      "size" : 7,
+      "id" : "html-component1",
+      "type" : "htmlComponent"
+    }, {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-single-select" ],
+        "stencilId" : "cloud-single-select"
+      },
+      "extraSettings" : {
+        "enableAutocomplete" : false,
+        "tagsEnabled" : false,
+        "preselectAll" : false,
+        "dataSource" : "Static",
+        "items" : [ {
+          "text" : "Approved",
+          "value" : "approved"
+        }, {
+          "text" : "Denied",
+          "value" : "denied"
+        } ],
+        "storage" : "Id",
+        "identity" : "value",
+        "linkTarget" : "_blank",
+        "validationPanelDisplay" : "show",
+        "multi" : false
+      },
+      "enabled" : true,
+      "labelAlign" : "top",
+      "value" : "{{restrictionsStatus}}",
+      "ignore" : false,
+      "visible" : true,
+      "isRequired" : false,
+      "size" : 5,
+      "tabIndex" : 0,
+      "label" : "Approve Restrictions",
+      "id" : "single-select1",
+      "type" : "select"
+    } ]
+  }, {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-tabs" ],
+        "stencilId" : "cloud-tabs"
+      },
+      "labelAlign" : "top",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "tabsorder" : [ "tab-panel1", "tab-panel2" ],
+        "activetab" : "tab-panel1",
+        "showBorder" : true,
+        "forceRenderAllTabs" : false,
+        "display" : "Horizontal",
+        "sections" : [ {
+          "designInfo" : {
+            "stencilSuperIds" : [ "base-tab-panel" ],
+            "stencilId" : "cloud-tab-panel"
+          },
+          "label" : "Request",
+          "labelAlign" : "top",
+          "ignore" : false,
+          "visible" : true,
+          "enabled" : true,
+          "isRequired" : false,
+          "extraSettings" : {
+            "validationPanelDisplay" : "show",
+            "serverValidationMethod" : "GET",
+            "layoutDefinition" : {
+              "rows" : [ {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-text" ],
+                    "stencilId" : "cloud-text"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{root.request.requestorName}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "useDelay" : true,
+                    "delay" : 200
+                  },
+                  "size" : 7,
+                  "tabIndex" : 0,
+                  "label" : "Requestor Name",
+                  "id" : "text1",
+                  "type" : "text"
+                }, {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-text" ],
+                    "stencilId" : "cloud-text"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{root.request.policyId}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "useDelay" : true,
+                    "delay" : 200
+                  },
+                  "size" : 5,
+                  "tabIndex" : 0,
+                  "label" : "Policy Id",
+                  "id" : "text2",
+                  "type" : "text"
+                } ]
+              }, {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-sub-form" ],
+                    "stencilId" : "cloud-sub-form"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{root.agent}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "showBorder" : false,
+                    "collapsible" : false,
+                    "collapsed" : false,
+                    "formRef" : "nWMAgentDetails"
+                  },
+                  "size" : 12,
+                  "id" : "sub-form1",
+                  "type" : "subform"
+                } ]
+              } ]
+            }
+          },
+          "size" : 12,
+          "id" : "tab-panel1",
+          "type" : "panel"
+        }, {
+          "designInfo" : {
+            "stencilSuperIds" : [ "base-tab-panel" ],
+            "stencilId" : "cloud-tab-panel"
+          },
+          "label" : "Policy Details",
+          "labelAlign" : "top",
+          "ignore" : false,
+          "visible" : true,
+          "enabled" : true,
+          "isRequired" : false,
+          "extraSettings" : {
+            "validationPanelDisplay" : "show",
+            "serverValidationMethod" : "GET",
+            "layoutDefinition" : {
+              "rows" : [ {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-sub-form" ],
+                    "stencilId" : "cloud-sub-form"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{root.policy}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "showBorder" : true,
+                    "collapsible" : false,
+                    "collapsed" : false,
+                    "formRef" : "sURPolicyDataSubForm"
+                  },
+                  "size" : 12,
+                  "label" : "Policy details",
+                  "id" : "sub-form2",
+                  "type" : "subform"
+                } ]
+              } ]
+            }
+          },
+          "size" : 12,
+          "id" : "tab-panel2",
+          "type" : "panel"
+        } ]
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "id" : "tabs1",
+      "type" : "tabs"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "nWMCheckRestrictions",
+    "name" : "NWM Check Restrictions",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

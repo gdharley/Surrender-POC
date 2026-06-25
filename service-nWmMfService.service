@@ -1,0 +1,120 @@
+{
+  "type" : "REST",
+  "operations" : [ {
+    "name" : "Create an account",
+    "key" : "createAccount",
+    "inputParameters" : [ {
+      "displayName" : "payload",
+      "name" : "payload",
+      "type" : "json"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    } ],
+    "config" : {
+      "method" : "POST",
+      "url" : "/mf/accounts"
+    },
+    "type" : "create",
+    "description" : "Emulates account creation in an external system. Accepts any JSON payload and returns a 200 acknowledgement."
+  }, {
+    "name" : "Get surrender value",
+    "key" : "getSurrenderValue",
+    "inputParameters" : [ {
+      "displayName" : "policyId",
+      "name" : "policyId",
+      "type" : "string"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "type" : "string",
+      "name" : "policyId",
+      "displayName" : "policyId"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "type" : "string",
+      "name" : "policyNumber",
+      "displayName" : "policyNumber"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "type" : "double",
+      "name" : "surrenderValue",
+      "displayName" : "surrenderValue"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "type" : "string",
+      "name" : "currency",
+      "displayName" : "currency"
+    }, {
+      "name" : "errorResponse",
+      "displayName" : "errorResponse",
+      "source" : "responseBody",
+      "type" : "json",
+      "description" : "Error responses for this operation:\n404: Policy not found\n",
+      "applyMappingConfig" : "onError",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    }, {
+      "name" : "errorResponseCode",
+      "displayName" : "errorResponseCode",
+      "source" : "responseCode",
+      "type" : "integer",
+      "applyMappingConfig" : "onError",
+      "description" : "HTTP error response code",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    } ],
+    "config" : {
+      "method" : "GET",
+      "url" : "/mf/policies/${policyId}/surrender-value"
+    },
+    "type" : "lookup",
+    "description" : "Returns the surrender value for the given policy. The surrender value corresponds to the cash value held against the policy."
+  }, {
+    "name" : "Start a fraud investigation",
+    "key" : "startFraudInvestigation",
+    "inputParameters" : [ {
+      "displayName" : "payload",
+      "name" : "payload",
+      "type" : "json"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    } ],
+    "config" : {
+      "method" : "POST",
+      "url" : "/mf/fraud-investigation"
+    },
+    "type" : "create",
+    "description" : "Emulates initiating a fraud investigation in an external system. Accepts any JSON payload and returns a 200 acknowledgement."
+  } ],
+  "config" : {
+    "baseUrl" : "https://demo-json-server-9cam.onrender.com/"
+  },
+  "key" : "nWmMfService",
+  "name" : "NWM Demo MF API",
+  "description" : "Lightweight endpoints emulating external system integrations for demos and prototyping. No authentication required.",
+  "generatorInfo" : {
+    "generationTimestamp" : "2026-06-16T20:37:57.347804Z",
+    "generatorName" : "OpenAPI",
+    "specificationVersion" : "1.0.0"
+  }
+}

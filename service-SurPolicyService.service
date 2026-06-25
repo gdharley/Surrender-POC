@@ -1,0 +1,934 @@
+{
+  "type" : "REST",
+  "operations" : [ {
+    "name" : "List all policies",
+    "key" : "listPolicies",
+    "inputParameters" : [ {
+      "name" : "status",
+      "mappingName" : "status",
+      "displayName" : "status",
+      "type" : "string",
+      "required" : false,
+      "exampleData" : "\"a string value\"",
+      "description" : "Filter by policy status",
+      "queryParameter" : true
+    }, {
+      "name" : "type",
+      "mappingName" : "type",
+      "displayName" : "type",
+      "type" : "string",
+      "required" : false,
+      "exampleData" : "\"a string value\"",
+      "description" : "Filter by policy type",
+      "queryParameter" : true
+    }, {
+      "name" : "otp_processing_allowed",
+      "mappingName" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed",
+      "type" : "boolean",
+      "required" : false,
+      "exampleData" : "true",
+      "description" : "Filter by over-the-phone processing flag",
+      "queryParameter" : true
+    }, {
+      "name" : "_page",
+      "mappingName" : "_page",
+      "displayName" : "_page",
+      "type" : "long",
+      "required" : false,
+      "exampleData" : "17",
+      "description" : "Page number (used with _per_page)",
+      "queryParameter" : true
+    }, {
+      "name" : "_per_page",
+      "mappingName" : "_per_page",
+      "displayName" : "_per_page",
+      "type" : "long",
+      "required" : false,
+      "exampleData" : "17",
+      "description" : "Number of results per page",
+      "queryParameter" : true
+    }, {
+      "name" : "_sort",
+      "mappingName" : "_sort",
+      "displayName" : "_sort",
+      "type" : "string",
+      "required" : false,
+      "exampleData" : "\"a string value\"",
+      "description" : "Field to sort by (prefix with - for descending)",
+      "queryParameter" : true
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "id",
+      "displayName" : "id"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "policyNumber",
+      "displayName" : "policyNumber"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "type",
+      "displayName" : "type"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "true",
+      "type" : "boolean",
+      "name" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed",
+      "description" : "Whether this policy can be serviced over the phone"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"firstName\" : \"James\",\n  \"lastName\" : \"Mitchell\",\n  \"email\" : \"james.mitchell@example.com\",\n  \"phone\" : \"555-0101\",\n  \"dateOfBirth\" : \"1972-03-15T00:00:00.000+00:00\"\n}",
+      "type" : "json",
+      "name" : "holder",
+      "displayName" : "Holder holder"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"faceValue\" : 500000,\n  \"cashValue\" : 42750.0,\n  \"beneficiary\" : {\n    \"name\" : \"Patricia Mitchell\",\n    \"email\" : \"patricia.mitchell@example.com\",\n    \"relationship\" : \"spouse\"\n  }\n}",
+      "type" : "json",
+      "name" : "coverage",
+      "displayName" : "Coverage coverage"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"type\" : \"whole-life\",\n  \"years\" : 20\n}",
+      "type" : "json",
+      "name" : "term",
+      "displayName" : "Term term"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"monthly\" : 312.0,\n  \"annual\" : 3744.0,\n  \"currency\" : \"USD\"\n}",
+      "type" : "json",
+      "name" : "premium",
+      "displayName" : "Premium premium"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "effectiveDate",
+      "displayName" : "effectiveDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "expirationDate",
+      "displayName" : "expirationDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.443078735Z\"",
+      "type" : "date",
+      "name" : "createdAt",
+      "displayName" : "createdAt"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.443094584Z\"",
+      "type" : "date",
+      "name" : "updatedAt",
+      "displayName" : "updatedAt"
+    }, {
+      "displayName" : "restrictions",
+      "name" : "restrictions",
+      "type" : "json",
+      "applyMappingConfig" : "onSuccess",
+      "missingValueConfig" : "ignore",
+      "nullValueConfig" : "setToNull"
+    } ],
+    "config" : {
+      "method" : "GET",
+      "url" : "/policy/policy"
+    },
+    "type" : "search",
+    "description" : "Returns all policies. Supports filtering by any top-level field and pagination."
+  }, {
+    "key" : "createPolicy",
+    "name" : "Create a policy",
+    "config" : {
+      "method" : "POST",
+      "url" : "/policy/policy"
+    },
+    "inputParameters" : [ {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "policyNumber",
+      "displayName" : "policyNumber"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "type",
+      "displayName" : "type"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "true",
+      "type" : "boolean",
+      "name" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"firstName\" : \"James\",\n  \"lastName\" : \"Mitchell\",\n  \"email\" : \"james.mitchell@example.com\",\n  \"phone\" : \"555-0101\",\n  \"dateOfBirth\" : \"1972-03-15T00:00:00.000+00:00\"\n}",
+      "type" : "json",
+      "name" : "holder",
+      "displayName" : "Holder holder"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"faceValue\" : 500000,\n  \"cashValue\" : 42750.0,\n  \"beneficiary\" : {\n    \"name\" : \"Patricia Mitchell\",\n    \"email\" : \"patricia.mitchell@example.com\",\n    \"relationship\" : \"spouse\"\n  }\n}",
+      "type" : "json",
+      "name" : "coverage",
+      "displayName" : "Coverage coverage"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"type\" : \"whole-life\",\n  \"years\" : 20\n}",
+      "type" : "json",
+      "name" : "term",
+      "displayName" : "Term term"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"monthly\" : 312.0,\n  \"annual\" : 3744.0,\n  \"currency\" : \"USD\"\n}",
+      "type" : "json",
+      "name" : "premium",
+      "displayName" : "Premium premium"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "effectiveDate",
+      "displayName" : "effectiveDate"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "expirationDate",
+      "displayName" : "expirationDate"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "id",
+      "displayName" : "id"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "policyNumber",
+      "displayName" : "policyNumber"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "type",
+      "displayName" : "type"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "true",
+      "type" : "boolean",
+      "name" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed",
+      "description" : "Whether this policy can be serviced over the phone"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"firstName\" : \"James\",\n  \"lastName\" : \"Mitchell\",\n  \"email\" : \"james.mitchell@example.com\",\n  \"phone\" : \"555-0101\",\n  \"dateOfBirth\" : \"1972-03-15T00:00:00.000+00:00\"\n}",
+      "type" : "json",
+      "name" : "holder",
+      "displayName" : "Holder holder"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"faceValue\" : 500000,\n  \"cashValue\" : 42750.0,\n  \"beneficiary\" : {\n    \"name\" : \"Patricia Mitchell\",\n    \"email\" : \"patricia.mitchell@example.com\",\n    \"relationship\" : \"spouse\"\n  }\n}",
+      "type" : "json",
+      "name" : "coverage",
+      "displayName" : "Coverage coverage"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"type\" : \"whole-life\",\n  \"years\" : 20\n}",
+      "type" : "json",
+      "name" : "term",
+      "displayName" : "Term term"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"monthly\" : 312.0,\n  \"annual\" : 3744.0,\n  \"currency\" : \"USD\"\n}",
+      "type" : "json",
+      "name" : "premium",
+      "displayName" : "Premium premium"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "effectiveDate",
+      "displayName" : "effectiveDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "expirationDate",
+      "displayName" : "expirationDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.443965979Z\"",
+      "type" : "date",
+      "name" : "createdAt",
+      "displayName" : "createdAt"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.443978222Z\"",
+      "type" : "date",
+      "name" : "updatedAt",
+      "displayName" : "updatedAt"
+    } ],
+    "type" : "create"
+  }, {
+    "name" : "Get a policy by ID",
+    "key" : "getPolicy",
+    "inputParameters" : [ {
+      "displayName" : "id",
+      "name" : "id",
+      "type" : "string"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "id",
+      "displayName" : "id"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "policyNumber",
+      "displayName" : "policyNumber"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "type",
+      "displayName" : "type"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "true",
+      "type" : "boolean",
+      "name" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed",
+      "description" : "Whether this policy can be serviced over the phone"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"firstName\" : \"James\",\n  \"lastName\" : \"Mitchell\",\n  \"email\" : \"james.mitchell@example.com\",\n  \"phone\" : \"555-0101\",\n  \"dateOfBirth\" : \"1972-03-15T00:00:00.000+00:00\"\n}",
+      "type" : "json",
+      "name" : "holder",
+      "displayName" : "Holder holder"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"faceValue\" : 500000,\n  \"cashValue\" : 42750.0,\n  \"beneficiary\" : {\n    \"name\" : \"Patricia Mitchell\",\n    \"email\" : \"patricia.mitchell@example.com\",\n    \"relationship\" : \"spouse\"\n  }\n}",
+      "type" : "json",
+      "name" : "coverage",
+      "displayName" : "Coverage coverage"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"type\" : \"whole-life\",\n  \"years\" : 20\n}",
+      "type" : "json",
+      "name" : "term",
+      "displayName" : "Term term"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"monthly\" : 312.0,\n  \"annual\" : 3744.0,\n  \"currency\" : \"USD\"\n}",
+      "type" : "json",
+      "name" : "premium",
+      "displayName" : "Premium premium"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "effectiveDate",
+      "displayName" : "effectiveDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "expirationDate",
+      "displayName" : "expirationDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.444318196Z\"",
+      "type" : "date",
+      "name" : "createdAt",
+      "displayName" : "createdAt"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.444328736Z\"",
+      "type" : "date",
+      "name" : "updatedAt",
+      "displayName" : "updatedAt"
+    }, {
+      "name" : "errorResponse",
+      "displayName" : "errorResponse",
+      "source" : "responseBody",
+      "type" : "json",
+      "description" : "Error responses for this operation:\n404: Policy not found\n",
+      "applyMappingConfig" : "onError",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    }, {
+      "name" : "errorResponseCode",
+      "displayName" : "errorResponseCode",
+      "source" : "responseCode",
+      "type" : "integer",
+      "applyMappingConfig" : "onError",
+      "description" : "HTTP error response code",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    }, {
+      "displayName" : "restrictions",
+      "name" : "restrictions",
+      "type" : "json",
+      "applyMappingConfig" : "onSuccess",
+      "missingValueConfig" : "ignore",
+      "nullValueConfig" : "setToNull"
+    } ],
+    "config" : {
+      "method" : "GET",
+      "url" : "/policy/policy/${id}"
+    },
+    "type" : "lookup"
+  }, {
+    "key" : "deletePolicy",
+    "name" : "Delete a policy",
+    "config" : {
+      "method" : "DELETE",
+      "url" : "/policy/policy/${id}"
+    },
+    "inputParameters" : [ ],
+    "outputParameters" : [ {
+      "name" : "errorResponse",
+      "displayName" : "errorResponse",
+      "source" : "responseBody",
+      "type" : "json",
+      "description" : "Error responses for this operation:\n404: Policy not found\n",
+      "applyMappingConfig" : "onError",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    }, {
+      "name" : "errorResponseCode",
+      "displayName" : "errorResponseCode",
+      "source" : "responseCode",
+      "type" : "integer",
+      "applyMappingConfig" : "onError",
+      "description" : "HTTP error response code",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    } ],
+    "type" : "delete"
+  }, {
+    "key" : "replacePolicy",
+    "name" : "Replace a policy",
+    "config" : {
+      "method" : "PUT",
+      "url" : "/policy/policy/${id}"
+    },
+    "inputParameters" : [ {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "policyNumber",
+      "displayName" : "policyNumber"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "type",
+      "displayName" : "type"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "true",
+      "type" : "boolean",
+      "name" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"firstName\" : \"James\",\n  \"lastName\" : \"Mitchell\",\n  \"email\" : \"james.mitchell@example.com\",\n  \"phone\" : \"555-0101\",\n  \"dateOfBirth\" : \"1972-03-15T00:00:00.000+00:00\"\n}",
+      "type" : "json",
+      "name" : "holder",
+      "displayName" : "Holder holder"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"faceValue\" : 500000,\n  \"cashValue\" : 42750.0,\n  \"beneficiary\" : {\n    \"name\" : \"Patricia Mitchell\",\n    \"email\" : \"patricia.mitchell@example.com\",\n    \"relationship\" : \"spouse\"\n  }\n}",
+      "type" : "json",
+      "name" : "coverage",
+      "displayName" : "Coverage coverage"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"type\" : \"whole-life\",\n  \"years\" : 20\n}",
+      "type" : "json",
+      "name" : "term",
+      "displayName" : "Term term"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"monthly\" : 312.0,\n  \"annual\" : 3744.0,\n  \"currency\" : \"USD\"\n}",
+      "type" : "json",
+      "name" : "premium",
+      "displayName" : "Premium premium"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "effectiveDate",
+      "displayName" : "effectiveDate"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "expirationDate",
+      "displayName" : "expirationDate"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "id",
+      "displayName" : "id"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "policyNumber",
+      "displayName" : "policyNumber"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "type",
+      "displayName" : "type"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "true",
+      "type" : "boolean",
+      "name" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed",
+      "description" : "Whether this policy can be serviced over the phone"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"firstName\" : \"James\",\n  \"lastName\" : \"Mitchell\",\n  \"email\" : \"james.mitchell@example.com\",\n  \"phone\" : \"555-0101\",\n  \"dateOfBirth\" : \"1972-03-15T00:00:00.000+00:00\"\n}",
+      "type" : "json",
+      "name" : "holder",
+      "displayName" : "Holder holder"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"faceValue\" : 500000,\n  \"cashValue\" : 42750.0,\n  \"beneficiary\" : {\n    \"name\" : \"Patricia Mitchell\",\n    \"email\" : \"patricia.mitchell@example.com\",\n    \"relationship\" : \"spouse\"\n  }\n}",
+      "type" : "json",
+      "name" : "coverage",
+      "displayName" : "Coverage coverage"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"type\" : \"whole-life\",\n  \"years\" : 20\n}",
+      "type" : "json",
+      "name" : "term",
+      "displayName" : "Term term"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"monthly\" : 312.0,\n  \"annual\" : 3744.0,\n  \"currency\" : \"USD\"\n}",
+      "type" : "json",
+      "name" : "premium",
+      "displayName" : "Premium premium"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "effectiveDate",
+      "displayName" : "effectiveDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "expirationDate",
+      "displayName" : "expirationDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.445202745Z\"",
+      "type" : "date",
+      "name" : "createdAt",
+      "displayName" : "createdAt"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.445213505Z\"",
+      "type" : "date",
+      "name" : "updatedAt",
+      "displayName" : "updatedAt"
+    }, {
+      "name" : "errorResponse",
+      "displayName" : "errorResponse",
+      "source" : "responseBody",
+      "type" : "json",
+      "description" : "Error responses for this operation:\n404: Policy not found\n",
+      "applyMappingConfig" : "onError",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    }, {
+      "name" : "errorResponseCode",
+      "displayName" : "errorResponseCode",
+      "source" : "responseCode",
+      "type" : "integer",
+      "applyMappingConfig" : "onError",
+      "description" : "HTTP error response code",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    } ],
+    "type" : "update"
+  }, {
+    "key" : "updatePolicy",
+    "name" : "Partially update a policy",
+    "config" : {
+      "method" : "PATCH",
+      "url" : "/policy/policy/${id}"
+    },
+    "inputParameters" : [ {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "true",
+      "type" : "boolean",
+      "name" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"faceValue\" : 500000,\n  \"cashValue\" : 42750.0,\n  \"beneficiary\" : {\n    \"name\" : \"Patricia Mitchell\",\n    \"email\" : \"patricia.mitchell@example.com\",\n    \"relationship\" : \"spouse\"\n  }\n}",
+      "type" : "json",
+      "name" : "coverage",
+      "displayName" : "Coverage coverage"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "{\n  \"monthly\" : 312.0,\n  \"annual\" : 3744.0,\n  \"currency\" : \"USD\"\n}",
+      "type" : "json",
+      "name" : "premium",
+      "displayName" : "Premium premium"
+    }, {
+      "required" : false,
+      "queryParameter" : false,
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "expirationDate",
+      "displayName" : "expirationDate"
+    } ],
+    "outputParameters" : [ {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "id",
+      "displayName" : "id"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "policyNumber",
+      "displayName" : "policyNumber"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "type",
+      "displayName" : "type"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"a string value\"",
+      "type" : "string",
+      "name" : "status",
+      "displayName" : "status"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "true",
+      "type" : "boolean",
+      "name" : "otp_processing_allowed",
+      "displayName" : "otp_processing_allowed",
+      "description" : "Whether this policy can be serviced over the phone"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"firstName\" : \"James\",\n  \"lastName\" : \"Mitchell\",\n  \"email\" : \"james.mitchell@example.com\",\n  \"phone\" : \"555-0101\",\n  \"dateOfBirth\" : \"1972-03-15T00:00:00.000+00:00\"\n}",
+      "type" : "json",
+      "name" : "holder",
+      "displayName" : "Holder holder"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"faceValue\" : 500000,\n  \"cashValue\" : 42750.0,\n  \"beneficiary\" : {\n    \"name\" : \"Patricia Mitchell\",\n    \"email\" : \"patricia.mitchell@example.com\",\n    \"relationship\" : \"spouse\"\n  }\n}",
+      "type" : "json",
+      "name" : "coverage",
+      "displayName" : "Coverage coverage"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"type\" : \"whole-life\",\n  \"years\" : 20\n}",
+      "type" : "json",
+      "name" : "term",
+      "displayName" : "Term term"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "{\n  \"monthly\" : 312.0,\n  \"annual\" : 3744.0,\n  \"currency\" : \"USD\"\n}",
+      "type" : "json",
+      "name" : "premium",
+      "displayName" : "Premium premium"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "effectiveDate",
+      "displayName" : "effectiveDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12\"",
+      "type" : "localDate",
+      "name" : "expirationDate",
+      "displayName" : "expirationDate"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.445702006Z\"",
+      "type" : "date",
+      "name" : "createdAt",
+      "displayName" : "createdAt"
+    }, {
+      "applyMappingConfig" : "onSuccess",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore",
+      "exampleData" : "\"2026-06-12T19:15:07.445713077Z\"",
+      "type" : "date",
+      "name" : "updatedAt",
+      "displayName" : "updatedAt"
+    }, {
+      "name" : "errorResponse",
+      "displayName" : "errorResponse",
+      "source" : "responseBody",
+      "type" : "json",
+      "description" : "Error responses for this operation:\n404: Policy not found\n",
+      "applyMappingConfig" : "onError",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    }, {
+      "name" : "errorResponseCode",
+      "displayName" : "errorResponseCode",
+      "source" : "responseCode",
+      "type" : "integer",
+      "applyMappingConfig" : "onError",
+      "description" : "HTTP error response code",
+      "nullValueConfig" : "setToNull",
+      "missingValueConfig" : "ignore"
+    } ],
+    "type" : "update"
+  }, {
+    "name" : "Search by TType",
+    "key" : "searchByTType",
+    "inputParameters" : [ {
+      "displayName" : "Type",
+      "name" : "type",
+      "type" : "string"
+    } ],
+    "outputParameters" : [ ],
+    "config" : {
+      "method" : "GET",
+      "url" : "/policy/policy?type=${type}"
+    },
+    "type" : "search"
+  } ],
+  "config" : {
+    "baseUrl" : "https://demo-json-server-9cam.onrender.com"
+  },
+  "key" : "SurPolicyService",
+  "name" : "NWM Demo Policy API",
+  "description" : "Mock life insurance policy API for demos and prototyping.",
+  "generatorInfo" : {
+    "generationTimestamp" : "2026-06-12T19:15:07.447951852Z",
+    "generatorName" : "OpenAPI",
+    "specificationVersion" : "1.0.0"
+  }
+}

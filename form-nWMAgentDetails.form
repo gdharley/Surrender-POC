@@ -1,0 +1,107 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-sub-panel" ],
+        "stencilId" : "cloud-sub-panel"
+      },
+      "labelAlign" : "top",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "collapsible" : false,
+        "collapsed" : false,
+        "showBorder" : false,
+        "saveButtonVisible" : true,
+        "saveButtonEnabled" : true,
+        "cancelButtonVisible" : true,
+        "cancelButtonEnabled" : true,
+        "hideCancelCrossButton" : false,
+        "layoutDefinition" : {
+          "rows" : [ {
+            "cols" : [ {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-text" ],
+                "stencilId" : "cloud-text"
+              },
+              "labelAlign" : "top",
+              "value" : "{{agentName}}",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "useDelay" : true,
+                "delay" : 200
+              },
+              "size" : 6,
+              "tabIndex" : 0,
+              "label" : "Agent Name",
+              "id" : "text1",
+              "type" : "text"
+            }, {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-text" ],
+                "stencilId" : "cloud-text"
+              },
+              "labelAlign" : "top",
+              "value" : "{{agentNumber}}",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "useDelay" : true,
+                "delay" : 200
+              },
+              "size" : 3,
+              "tabIndex" : 0,
+              "label" : "Agent Number",
+              "id" : "text2",
+              "type" : "text"
+            }, {
+              "designInfo" : {
+                "stencilSuperIds" : [ "base-text" ],
+                "stencilId" : "cloud-text"
+              },
+              "labelAlign" : "top",
+              "value" : "{{office}}",
+              "ignore" : false,
+              "visible" : true,
+              "enabled" : true,
+              "isRequired" : false,
+              "extraSettings" : {
+                "validationPanelDisplay" : "show",
+                "useDelay" : true,
+                "delay" : 200
+              },
+              "size" : 3,
+              "tabIndex" : 0,
+              "label" : "Office",
+              "id" : "text3",
+              "type" : "text"
+            } ]
+          } ]
+        }
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "id" : "sub-panel1",
+      "type" : "panel"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "nWMAgentDetails",
+    "name" : "NWM Agent Details",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

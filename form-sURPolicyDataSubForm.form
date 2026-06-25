@@ -1,0 +1,593 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{policyNumber}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 4,
+      "tabIndex" : 0,
+      "label" : "Policy Number",
+      "id" : "text2",
+      "type" : "text"
+    }, {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{type}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 4,
+      "tabIndex" : 0,
+      "label" : "Type",
+      "id" : "text3",
+      "type" : "text"
+    }, {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{status}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 4,
+      "tabIndex" : 0,
+      "label" : "Status",
+      "id" : "text4",
+      "type" : "text"
+    } ]
+  }, {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{effectiveDate}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 6,
+      "tabIndex" : 0,
+      "label" : "Effective Date",
+      "id" : "text1",
+      "type" : "text"
+    }, {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{expirationDate}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 6,
+      "tabIndex" : 0,
+      "label" : "Expiration Date",
+      "id" : "text5",
+      "type" : "text"
+    } ]
+  }, {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-tabs" ],
+        "stencilId" : "cloud-tabs"
+      },
+      "labelAlign" : "top",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "tabsorder" : [ "tab-panel1", "tab-panel2", "tab-panel3" ],
+        "activetab" : "tab-panel1",
+        "showBorder" : true,
+        "forceRenderAllTabs" : false,
+        "display" : "Vertical",
+        "sections" : [ {
+          "designInfo" : {
+            "stencilSuperIds" : [ "base-tab-panel" ],
+            "stencilId" : "cloud-tab-panel"
+          },
+          "label" : "Holder",
+          "labelAlign" : "top",
+          "ignore" : false,
+          "visible" : true,
+          "enabled" : true,
+          "isRequired" : false,
+          "extraSettings" : {
+            "validationPanelDisplay" : "show",
+            "serverValidationMethod" : "GET",
+            "layoutDefinition" : {
+              "rows" : [ {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-sub-panel" ],
+                    "stencilId" : "cloud-sub-panel"
+                  },
+                  "labelAlign" : "top",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "collapsible" : false,
+                    "collapsed" : false,
+                    "showBorder" : false,
+                    "saveButtonVisible" : true,
+                    "saveButtonEnabled" : true,
+                    "cancelButtonVisible" : true,
+                    "cancelButtonEnabled" : true,
+                    "hideCancelCrossButton" : false,
+                    "layoutDefinition" : {
+                      "rows" : [ {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{holder.firstName}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 3,
+                          "tabIndex" : 0,
+                          "label" : "First name",
+                          "id" : "text6",
+                          "type" : "text"
+                        }, {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{holder.lastName}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 6,
+                          "tabIndex" : 0,
+                          "label" : "Last name",
+                          "id" : "text7",
+                          "type" : "text"
+                        }, {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{holder.dateOfBirth}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 3,
+                          "tabIndex" : 0,
+                          "label" : "Date of Birth",
+                          "id" : "text8",
+                          "type" : "text"
+                        } ]
+                      }, {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{holder.email}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 6,
+                          "tabIndex" : 0,
+                          "label" : "Email",
+                          "id" : "text9",
+                          "type" : "text"
+                        }, {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{holder.phone}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 6,
+                          "tabIndex" : 0,
+                          "label" : "Phone",
+                          "id" : "text10",
+                          "type" : "text"
+                        } ]
+                      }, {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-checkbox" ],
+                            "stencilId" : "cloud-checkbox"
+                          },
+                          "checkboxLabelAlign" : "right",
+                          "value" : "{{otp_processing_allowed}}",
+                          "defaultValue" : false,
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : false,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show"
+                          },
+                          "size" : 12,
+                          "tabIndex" : 0,
+                          "label" : "Phone Processing Allowed",
+                          "id" : "checkbox1",
+                          "type" : "boolean"
+                        } ]
+                      } ]
+                    }
+                  },
+                  "size" : 12,
+                  "tabIndex" : 0,
+                  "id" : "sub-panel1",
+                  "type" : "panel"
+                } ]
+              } ]
+            }
+          },
+          "size" : 12,
+          "id" : "tab-panel1",
+          "type" : "panel"
+        }, {
+          "designInfo" : {
+            "stencilSuperIds" : [ "base-tab-panel" ],
+            "stencilId" : "cloud-tab-panel"
+          },
+          "label" : "Restrictions",
+          "labelAlign" : "top",
+          "ignore" : false,
+          "visible" : true,
+          "enabled" : true,
+          "isRequired" : false,
+          "extraSettings" : {
+            "validationPanelDisplay" : "show",
+            "serverValidationMethod" : "GET",
+            "layoutDefinition" : {
+              "rows" : [ {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-datatable" ],
+                    "stencilId" : "cloud-datatable"
+                  },
+                  "enabled" : true,
+                  "extraSettings" : {
+                    "dataSource" : "Static",
+                    "items" : "{{restrictions}}",
+                    "storage" : "Id",
+                    "identity" : "value",
+                    "linkTarget" : "_blank",
+                    "validationPanelDisplay" : "show",
+                    "infiniteScroll" : true,
+                    "infiniteScrollVisibleElements" : 10,
+                    "showTotalRecords" : false,
+                    "pageSize" : 10,
+                    "columns" : [ {
+                      "label" : "Type Code",
+                      "id" : "typeCode",
+                      "accessor" : "typeCode",
+                      "alignment" : "left",
+                      "filterable" : "false",
+                      "sortable" : "false",
+                      "show" : true,
+                      "cellDefinition" : {
+                        "type" : "display",
+                        "subtype" : "text",
+                        "config" : {
+                          "type" : "panelMono",
+                          "extraSettings" : {
+                            "children" : [ {
+                              "designInfo" : {
+                                "stencilSuperIds" : [ "base-cell-component" ],
+                                "stencilId" : "cloud-cell-component"
+                              },
+                              "labelAlign" : "top",
+                              "value" : "{{$item.typeCode}}",
+                              "ignore" : false,
+                              "visible" : true,
+                              "enabled" : true,
+                              "isRequired" : false,
+                              "extraSettings" : {
+                                "validationPanelDisplay" : "show",
+                                "showBorder" : false
+                              },
+                              "size" : 1,
+                              "id" : "cell-gi07cZLYh6",
+                              "displayType" : "text",
+                              "escapeHtml" : false,
+                              "type" : "cellComponent"
+                            } ]
+                          }
+                        }
+                      }
+                    }, {
+                      "label" : "Description",
+                      "id" : "description",
+                      "accessor" : "description",
+                      "alignment" : "left",
+                      "filterable" : "false",
+                      "sortable" : "false",
+                      "show" : true,
+                      "cellDefinition" : {
+                        "type" : "display",
+                        "subtype" : "text",
+                        "config" : {
+                          "type" : "panelMono",
+                          "extraSettings" : {
+                            "children" : [ {
+                              "designInfo" : {
+                                "stencilSuperIds" : [ "base-cell-component" ],
+                                "stencilId" : "cloud-cell-component"
+                              },
+                              "labelAlign" : "top",
+                              "value" : "{{$item.description}}",
+                              "ignore" : false,
+                              "visible" : true,
+                              "enabled" : true,
+                              "isRequired" : false,
+                              "extraSettings" : {
+                                "validationPanelDisplay" : "show",
+                                "showBorder" : false
+                              },
+                              "size" : 1,
+                              "id" : "cell-KpbeRcdP5F",
+                              "displayType" : "text",
+                              "escapeHtml" : false,
+                              "type" : "cellComponent"
+                            } ]
+                          }
+                        }
+                      }
+                    }, {
+                      "label" : "Effective Date",
+                      "id" : "effective",
+                      "accessor" : "effectiveDate",
+                      "alignment" : "left",
+                      "filterable" : "false",
+                      "sortable" : "false",
+                      "show" : true,
+                      "cellDefinition" : {
+                        "type" : "display",
+                        "subtype" : "text",
+                        "config" : {
+                          "type" : "panelMono",
+                          "extraSettings" : {
+                            "children" : [ {
+                              "designInfo" : {
+                                "stencilSuperIds" : [ "base-cell-component" ],
+                                "stencilId" : "cloud-cell-component"
+                              },
+                              "labelAlign" : "top",
+                              "value" : "{{$item.effectiveDate}}",
+                              "ignore" : false,
+                              "visible" : true,
+                              "enabled" : true,
+                              "isRequired" : false,
+                              "extraSettings" : {
+                                "validationPanelDisplay" : "show",
+                                "showBorder" : false
+                              },
+                              "size" : 1,
+                              "id" : "cell-43GoDQsu9e",
+                              "displayType" : "text",
+                              "escapeHtml" : false,
+                              "type" : "cellComponent"
+                            } ]
+                          }
+                        }
+                      }
+                    } ],
+                    "sortableColumns" : false,
+                    "showExportButton" : false,
+                    "showFavoriteButton" : true,
+                    "nodataPosition" : "middle-center",
+                    "expandablePanel" : "nWMRestrictionDetailsPanel",
+                    "expandablePanelVariable" : "item",
+                    "dataPollingOnInit" : false,
+                    "sortable" : false,
+                    "filterable" : false,
+                    "defaultShowFilters" : false
+                  },
+                  "labelAlign" : "top",
+                  "ignore" : false,
+                  "visible" : true,
+                  "isRequired" : false,
+                  "size" : 12,
+                  "tabIndex" : 0,
+                  "id" : "datatable1",
+                  "type" : "dataTable"
+                } ]
+              } ]
+            }
+          },
+          "size" : 12,
+          "id" : "tab-panel2",
+          "type" : "panel"
+        }, {
+          "designInfo" : {
+            "stencilSuperIds" : [ "base-tab-panel" ],
+            "stencilId" : "cloud-tab-panel"
+          },
+          "label" : "Beneficiary",
+          "labelAlign" : "top",
+          "ignore" : false,
+          "visible" : true,
+          "enabled" : true,
+          "isRequired" : false,
+          "extraSettings" : {
+            "validationPanelDisplay" : "show",
+            "serverValidationMethod" : "GET",
+            "layoutDefinition" : {
+              "rows" : [ {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-text" ],
+                    "stencilId" : "cloud-text"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{coverage.beneficiary.name}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "useDelay" : true,
+                    "delay" : 200
+                  },
+                  "size" : 6,
+                  "tabIndex" : 0,
+                  "label" : "Name",
+                  "id" : "text11",
+                  "type" : "text"
+                }, {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-text" ],
+                    "stencilId" : "cloud-text"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{coverage.beneficiary.relationship}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "useDelay" : true,
+                    "delay" : 200
+                  },
+                  "size" : 6,
+                  "tabIndex" : 0,
+                  "label" : "Relationship",
+                  "id" : "text12",
+                  "type" : "text"
+                } ]
+              }, {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-text" ],
+                    "stencilId" : "cloud-text"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{coverage.beneficiary.email}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "useDelay" : true,
+                    "delay" : 200
+                  },
+                  "size" : 6,
+                  "tabIndex" : 0,
+                  "label" : "Email",
+                  "id" : "text13",
+                  "type" : "text"
+                }, {
+                  "size" : 6,
+                  "type" : ""
+                } ]
+              } ]
+            }
+          },
+          "size" : 12,
+          "id" : "tab-panel3",
+          "type" : "panel"
+        } ]
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "id" : "tabs1",
+      "type" : "tabs"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "sURPolicyDataSubForm",
+    "name" : "SUR Policy Data Sub Form",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

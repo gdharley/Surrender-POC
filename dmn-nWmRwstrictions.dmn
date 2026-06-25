@@ -1,0 +1,69 @@
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:flowable="http://flowable.org/dmn" xmlns:design="http://flowable.org/design" id="definition_nWmRwstrictions" name="NWm Rwstrictions " namespace="http://www.flowable.org/dmn">
+  <decision id="nWmRwstrictions" name="NWm Rwstrictions ">
+    <decisionTable id="decisionTable_nWmRwstrictions" hitPolicy="FIRST">
+      <input label="Restriction">
+        <inputExpression id="inputExpression_ecf2f2d6-8e31-441a-b6f4-88ee8cb3711a" typeRef="string">
+          <text>restriction.typeCode</text>
+        </inputExpression>
+      </input>
+      <output id="outputExpression_2" label="Bypassable" name="bypassable" typeRef="boolean"></output>
+      <rule>
+        <inputEntry id="inputEntry_ecf2f2d6-8e31-441a-b6f4-88ee8cb3711a_1">
+          <text><![CDATA[== "CL"]]></text>
+        </inputEntry>
+        <outputEntry id="outputEntry_2_1">
+          <text><![CDATA[true]]></text>
+        </outputEntry>
+      </rule>
+      <rule>
+        <inputEntry id="inputEntry_ecf2f2d6-8e31-441a-b6f4-88ee8cb3711a_2">
+          <text><![CDATA[== "OL"]]></text>
+        </inputEntry>
+        <outputEntry id="outputEntry_2_2">
+          <text><![CDATA[false]]></text>
+        </outputEntry>
+      </rule>
+      <rule>
+        <inputEntry id="inputEntry_ecf2f2d6-8e31-441a-b6f4-88ee8cb3711a_3">
+          <text><![CDATA[== "DBR"]]></text>
+        </inputEntry>
+        <outputEntry id="outputEntry_2_3">
+          <text><![CDATA[true]]></text>
+        </outputEntry>
+      </rule>
+      <rule>
+        <inputEntry id="inputEntry_ecf2f2d6-8e31-441a-b6f4-88ee8cb3711a_4">
+          <text><![CDATA[== "APL"]]></text>
+        </inputEntry>
+        <outputEntry id="outputEntry_2_4">
+          <text><![CDATA[true]]></text>
+        </outputEntry>
+      </rule>
+      <rule>
+        <inputEntry id="inputEntry_ecf2f2d6-8e31-441a-b6f4-88ee8cb3711a_5">
+          <text><![CDATA[== "SP"]]></text>
+        </inputEntry>
+        <outputEntry id="outputEntry_2_5">
+          <text><![CDATA[false]]></text>
+        </outputEntry>
+      </rule>
+      <rule>
+        <inputEntry id="inputEntry_ecf2f2d6-8e31-441a-b6f4-88ee8cb3711a_6">
+          <text><![CDATA[== "PA"]]></text>
+        </inputEntry>
+        <outputEntry id="outputEntry_2_6">
+          <text><![CDATA[false]]></text>
+        </outputEntry>
+      </rule>
+      <rule>
+        <inputEntry id="inputEntry_ecf2f2d6-8e31-441a-b6f4-88ee8cb3711a_7">
+          <text><![CDATA[== "RP"]]></text>
+        </inputEntry>
+        <outputEntry id="outputEntry_2_7">
+          <text><![CDATA[false]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI></dmndi:DMNDI>
+</definitions>

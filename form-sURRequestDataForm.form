@@ -1,0 +1,56 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{requestorName}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 6,
+      "tabIndex" : 0,
+      "label" : "Requestor Name",
+      "id" : "text1",
+      "type" : "text"
+    }, {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text" ],
+        "stencilId" : "cloud-text"
+      },
+      "labelAlign" : "top",
+      "value" : "{{policyId}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 6,
+      "tabIndex" : 0,
+      "label" : "Policy Id",
+      "id" : "text2",
+      "type" : "text"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "sURRequestDataForm",
+    "name" : "SUR Request Data Form",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

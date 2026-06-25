@@ -1,0 +1,272 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-tabs" ],
+        "stencilId" : "cloud-tabs"
+      },
+      "labelAlign" : "top",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "tabsorder" : [ "tab-panel1", "tab-panel2" ],
+        "activetab" : "tab-panel1",
+        "showBorder" : false,
+        "forceRenderAllTabs" : false,
+        "display" : "Horizontal",
+        "sections" : [ {
+          "designInfo" : {
+            "stencilSuperIds" : [ "base-tab-panel" ],
+            "stencilId" : "cloud-tab-panel"
+          },
+          "label" : "Requestor",
+          "labelAlign" : "top",
+          "ignore" : false,
+          "visible" : true,
+          "enabled" : true,
+          "isRequired" : false,
+          "extraSettings" : {
+            "validationPanelDisplay" : "show",
+            "serverValidationMethod" : "GET",
+            "layoutDefinition" : {
+              "rows" : [ {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-sub-panel" ],
+                    "stencilId" : "cloud-sub-panel"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{request}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "collapsible" : false,
+                    "collapsed" : false,
+                    "showBorder" : false,
+                    "saveButtonVisible" : true,
+                    "saveButtonEnabled" : true,
+                    "cancelButtonVisible" : true,
+                    "cancelButtonEnabled" : true,
+                    "hideCancelCrossButton" : false,
+                    "layoutDefinition" : {
+                      "rows" : [ {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{requestorName}}",
+                          "defaultValue" : "Martin Laurence",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : true,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 6,
+                          "tabIndex" : 0,
+                          "label" : "Requestor",
+                          "id" : "text2",
+                          "type" : "text"
+                        }, {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{policyId}}",
+                          "defaultValue" : "POL-002",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : true,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 6,
+                          "tabIndex" : 0,
+                          "label" : "Policy Number",
+                          "id" : "text1",
+                          "type" : "text"
+                        } ]
+                      } ]
+                    }
+                  },
+                  "size" : 12,
+                  "tabIndex" : 0,
+                  "id" : "sub-panel1",
+                  "type" : "panel"
+                } ]
+              } ]
+            }
+          },
+          "size" : 12,
+          "id" : "tab-panel1",
+          "type" : "panel"
+        }, {
+          "designInfo" : {
+            "stencilSuperIds" : [ "base-tab-panel" ],
+            "stencilId" : "cloud-tab-panel"
+          },
+          "label" : "Financial Representative",
+          "labelAlign" : "top",
+          "ignore" : false,
+          "visible" : true,
+          "enabled" : true,
+          "isRequired" : false,
+          "extraSettings" : {
+            "validationPanelDisplay" : "show",
+            "serverValidationMethod" : "GET",
+            "layoutDefinition" : {
+              "rows" : [ {
+                "cols" : [ {
+                  "designInfo" : {
+                    "stencilSuperIds" : [ "base-sub-panel" ],
+                    "stencilId" : "cloud-sub-panel"
+                  },
+                  "labelAlign" : "top",
+                  "value" : "{{agent}}",
+                  "ignore" : false,
+                  "visible" : true,
+                  "enabled" : true,
+                  "isRequired" : false,
+                  "extraSettings" : {
+                    "validationPanelDisplay" : "show",
+                    "collapsible" : false,
+                    "collapsed" : false,
+                    "showBorder" : false,
+                    "saveButtonVisible" : true,
+                    "saveButtonEnabled" : true,
+                    "cancelButtonVisible" : true,
+                    "cancelButtonEnabled" : true,
+                    "hideCancelCrossButton" : false,
+                    "layoutDefinition" : {
+                      "rows" : [ {
+                        "cols" : [ {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{agentName}}",
+                          "defaultValue" : "John Wick",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : true,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 5,
+                          "tabIndex" : 0,
+                          "label" : "Agent Name",
+                          "id" : "text3",
+                          "type" : "text"
+                        }, {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-text" ],
+                            "stencilId" : "cloud-text"
+                          },
+                          "labelAlign" : "top",
+                          "value" : "{{agentNumber}}",
+                          "defaultValue" : "11-1111",
+                          "ignore" : false,
+                          "visible" : true,
+                          "enabled" : true,
+                          "isRequired" : true,
+                          "extraSettings" : {
+                            "validationPanelDisplay" : "show",
+                            "useDelay" : true,
+                            "delay" : 200
+                          },
+                          "size" : 3,
+                          "tabIndex" : 0,
+                          "label" : "Agent Number",
+                          "id" : "text5",
+                          "validationMask" : "99-9999",
+                          "validationMaskErrorMessage" : "99-9999",
+                          "type" : "text"
+                        }, {
+                          "designInfo" : {
+                            "stencilSuperIds" : [ "base-single-select" ],
+                            "stencilId" : "cloud-single-select"
+                          },
+                          "extraSettings" : {
+                            "enableAutocomplete" : false,
+                            "tagsEnabled" : false,
+                            "preselectAll" : false,
+                            "dataSource" : "Static",
+                            "items" : [ {
+                              "text" : "NO-35",
+                              "value" : "NO-35"
+                            }, {
+                              "text" : "NO-01",
+                              "value" : "NO-01"
+                            }, {
+                              "text" : "NO-02",
+                              "value" : "NO-02"
+                            } ],
+                            "storage" : "Id",
+                            "identity" : "value",
+                            "linkTarget" : "_blank",
+                            "validationPanelDisplay" : "show",
+                            "multi" : false
+                          },
+                          "enabled" : true,
+                          "labelAlign" : "top",
+                          "value" : "{{office}}",
+                          "ignore" : false,
+                          "visible" : true,
+                          "isRequired" : false,
+                          "size" : 4,
+                          "tabIndex" : 0,
+                          "label" : "Office",
+                          "id" : "single-select1",
+                          "type" : "select"
+                        } ]
+                      } ]
+                    }
+                  },
+                  "size" : 12,
+                  "tabIndex" : 0,
+                  "id" : "sub-panel2",
+                  "type" : "panel"
+                } ]
+              } ]
+            }
+          },
+          "size" : 12,
+          "id" : "tab-panel2",
+          "type" : "panel"
+        } ]
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "id" : "tabs1",
+      "type" : "tabs"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "sURCaseStartForm",
+    "name" : "SUR Case Start Form",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

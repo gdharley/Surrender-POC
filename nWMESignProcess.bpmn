@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:design="http://flowable.org/design" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://flowable.org/test" exporter="Flowable Design" exporterVersion="2026.1.0.RC1" design:palette="flowable-work-process-palette">
+  <process id="nWMESignProcess" name="NWM eSign Process" isExecutable="true" flowable:candidateStarterGroups="flowableUser">
+    <extensionElements>
+      <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>
+      <design:creationdate><![CDATA[2026-06-25T21:46:14.395Z]]></design:creationdate>
+      <design:modificationdate><![CDATA[2026-06-25T21:46:14.395Z]]></design:modificationdate>
+    </extensionElements>
+    <userTask id="FormTask_1" name="Run eSign" flowable:assignee="${initiator}" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+        <design:stencilid><![CDATA[FormTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+      </extensionElements>
+    </userTask>
+    <callActivity id="CallActivity_3" name="Generic eSign Process" calledElement="nWMGenericEsignProcess" flowable:sameDeployment="true" flowable:fallbackToDefaultTenant="true">
+      <extensionElements>
+        <flowable:in source="initiator" target="initiator"></flowable:in>
+        <flowable:in source="request" target="request"></flowable:in>
+        <flowable:in source="policyDoc" target="document"></flowable:in>
+        <flowable:in sourceExpression="${policy.holder.email}" target="signerEmail"></flowable:in>
+        <flowable:out source="eSignStatus" target="eSignStatus"></flowable:out>
+        <design:stencilid><![CDATA[CallActivity]]></design:stencilid>
+      </extensionElements>
+    </callActivity>
+    <serviceTask id="VariableActivity_4" name="Initialize variables" flowable:delegateExpression="${initVariablesService}" flowable:type="init-variables" flowable:extensionId="VariableActivity">
+      <extensionElements>
+        <flowable:overwrite><![CDATA[true]]></flowable:overwrite>
+        <flowable:variableMapping target="root" name="caseStatus" valueType="string" value="Initiated - Waiting for Form"></flowable:variableMapping>
+        <design:stencilid><![CDATA[VariableActivity]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <startEvent id="startnoneevent1" flowable:initiator="initiator" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>
+        <design:stencilid><![CDATA[StartNoneEvent]]></design:stencilid>
+      </extensionElements>
+    </startEvent>
+    <endEvent id="EndNoneEvent_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>
+      </extensionElements>
+    </endEvent>
+    <sequenceFlow id="SequenceFlow_4" sourceRef="FormTask_1" targetRef="CallActivity_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_5" sourceRef="CallActivity_3" targetRef="EndNoneEvent_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_6" sourceRef="VariableActivity_4" targetRef="FormTask_1">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_2" sourceRef="startnoneevent1" targetRef="VariableActivity_4">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <textAnnotation id="TextAnnotation_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[TextAnnotation]]></design:stencilid>
+        <design:text><![CDATA[policy
+request
+policyDoc
+initiator]]></design:text>
+      </extensionElements>
+      <text>policy
+request
+policyDoc
+initiator</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_4">
+      <extensionElements>
+        <design:stencilid><![CDATA[TextAnnotation]]></design:stencilid>
+        <design:text><![CDATA[eSignStatus]]></design:text>
+      </extensionElements>
+      <text>eSignStatus</text>
+    </textAnnotation>
+    <association id="AssociationUndirected_4" sourceRef="TextAnnotation_3" targetRef="startnoneevent1" associationDirection="None">
+      <extensionElements>
+        <design:stencilid><![CDATA[AssociationUndirected]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Association_Undirected]]></design:stencilsuperid>
+      </extensionElements>
+    </association>
+    <association id="AssociationUndirected_5" sourceRef="TextAnnotation_4" targetRef="EndNoneEvent_3" associationDirection="None">
+      <extensionElements>
+        <design:stencilid><![CDATA[AssociationUndirected]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Association_Undirected]]></design:stencilsuperid>
+      </extensionElements>
+    </association>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_nWMESignProcess">
+    <bpmndi:BPMNPlane bpmnElement="nWMESignProcess" id="BPMNPlane_nWMESignProcess">
+      <bpmndi:BPMNShape bpmnElement="FormTask_1" id="BPMNShape_FormTask_1">
+        <omgdc:Bounds height="80.0" width="100.0" x="572.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="CallActivity_3" id="BPMNShape_CallActivity_3">
+        <omgdc:Bounds height="80.0" width="100.0" x="744.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="VariableActivity_4" id="BPMNShape_VariableActivity_4">
+        <omgdc:Bounds height="80.0" width="100.0" x="414.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startnoneevent1" id="BPMNShape_startnoneevent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="317.0" y="261.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndNoneEvent_3" id="BPMNShape_EndNoneEvent_3">
+        <omgdc:Bounds height="28.0" width="28.0" x="1065.0" y="262.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TextAnnotation_3" id="BPMNShape_TextAnnotation_3">
+        <omgdc:Bounds height="90.0" width="127.0" x="426.0" y="78.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TextAnnotation_4" id="BPMNShape_TextAnnotation_4">
+        <omgdc:Bounds height="50.0" width="120.0" x="1105.0" y="115.75"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="AssociationUndirected_4" id="BPMNEdge_AssociationUndirected_4" flowable:sourceDockerX="64.0" flowable:sourceDockerY="45.0" flowable:targetDockerX="15.0" flowable:targetDockerY="15.0">
+        <omgdi:waypoint x="426.0" y="123.0"></omgdi:waypoint>
+        <omgdi:waypoint x="332.0" y="123.0"></omgdi:waypoint>
+        <omgdi:waypoint x="332.0" y="261.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_6" id="BPMNEdge_SequenceFlow_6" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="514.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="572.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="AssociationUndirected_5" id="BPMNEdge_AssociationUndirected_5" flowable:sourceDockerX="60.0" flowable:sourceDockerY="25.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="1165.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1165.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1093.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_4" id="BPMNEdge_SequenceFlow_4" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="672.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="744.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_5" id="BPMNEdge_SequenceFlow_5" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="844.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1065.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_2" id="BPMNEdge_SequenceFlow_2" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="347.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="414.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

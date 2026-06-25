@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:design="http://flowable.org/design" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://flowable.org/test" exporter="Flowable Design" exporterVersion="2026.1.0.RC1" design:palette="flowable-work-process-palette">
+  <process id="nWMGenericEsignProcess" name="NWM Generic Esign process" isExecutable="true" flowable:candidateStarterGroups="flowableUser">
+    <extensionElements>
+      <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>
+      <design:creationdate><![CDATA[2026-06-25T21:46:14.409Z]]></design:creationdate>
+      <design:modificationdate><![CDATA[2026-06-25T21:46:14.409Z]]></design:modificationdate>
+    </extensionElements>
+    <subProcess id="ExpandedSubProcess_15" name="generate Content items">
+      <extensionElements>
+        <design:stencilid><![CDATA[ExpandedSubProcess]]></design:stencilid>
+      </extensionElements>
+      <multiInstanceLoopCharacteristics isSequential="true" flowable:collection="${signedDocs}" flowable:elementVariable="theDoc">
+        <extensionElements></extensionElements>
+      </multiInstanceLoopCharacteristics>
+      <serviceTask id="ServiceRegistryTask_17" name="Gert Document Content" flowable:delegateExpression="${serviceRegistryService}" flowable:type="service-registry" flowable:extensionId="ServiceRegistryTask">
+        <extensionElements>
+          <flowable:serviceMapping serviceModelKey="genericEsignService" operationKey="getDocumentContent"></flowable:serviceMapping>
+          <flowable:inputParameter name="envelopeId" value="${envelopeId}"></flowable:inputParameter>
+          <flowable:inputParameter name="documentId" value="${theDoc.documentId}"></flowable:inputParameter>
+          <flowable:outputParameter name="contentType" value="contentType"></flowable:outputParameter>
+          <flowable:outputParameter name="data" value="docData"></flowable:outputParameter>
+          <design:stencilid><![CDATA[ServiceRegistryTask]]></design:stencilid>
+          <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+        </extensionElements>
+      </serviceTask>
+      <serviceTask id="CreateDocumentTask_17" name="Create document" flowable:delegateExpression="${createDocumentService}" flowable:type="create-document">
+        <extensionElements>
+          <design:stencilid><![CDATA[CreateDocumentTask]]></design:stencilid>
+          <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+          <flowable:documentContent><![CDATA[${docData}]]></flowable:documentContent>
+          <flowable:outputDocumentName><![CDATA[${envelopeId}]]></flowable:outputDocumentName>
+          <flowable:outputDocumentMimeType><![CDATA[${contentType}]]></flowable:outputDocumentMimeType>
+          <flowable:outputVariableName><![CDATA[myDoc]]></flowable:outputVariableName>
+        </extensionElements>
+      </serviceTask>
+      <startEvent id="StartNoneEvent_17" flowable:initiator="initiator" flowable:formFieldValidation="false">
+        <extensionElements>
+          <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>
+          <design:stencilid><![CDATA[StartNoneEvent]]></design:stencilid>
+        </extensionElements>
+      </startEvent>
+      <endEvent id="EndNoneEvent_20">
+        <extensionElements>
+          <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>
+        </extensionElements>
+      </endEvent>
+      <sequenceFlow id="SequenceFlow_19" sourceRef="ServiceRegistryTask_17" targetRef="CreateDocumentTask_17">
+        <extensionElements>
+          <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+        </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_21" sourceRef="CreateDocumentTask_17" targetRef="EndNoneEvent_20">
+        <extensionElements>
+          <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+        </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_18" sourceRef="StartNoneEvent_17" targetRef="ServiceRegistryTask_17">
+        <extensionElements>
+          <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+        </extensionElements>
+      </sequenceFlow>
+    </subProcess>
+    <serviceTask id="ServiceRegistryTask_3" name="Get eSign Account" flowable:delegateExpression="${serviceRegistryService}" flowable:type="service-registry" flowable:extensionId="ServiceRegistryTask">
+      <extensionElements>
+        <flowable:serviceMapping serviceModelKey="genericEsignService" operationKey="getUserInfo"></flowable:serviceMapping>
+        <flowable:inputParameter name="email" value="${signerEmail}"></flowable:inputParameter>
+        <flowable:outputVariableName><![CDATA[account]]></flowable:outputVariableName>
+        <design:stencilid><![CDATA[ServiceRegistryTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="ServiceTask_3" name="Base64 Encode Document" flowable:expression="${flw.base64.encodeToString(document)}" flowable:resultVariableName="encodedDocument" flowable:storeResultVariableAsTransient="true">
+      <extensionElements>
+        <design:stencilid><![CDATA[ServiceTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="ServiceRegistryTask_6" name="Create eSign Envelope" flowable:delegateExpression="${serviceRegistryService}" flowable:type="service-registry" flowable:extensionId="ServiceRegistryTask">
+      <extensionElements>
+        <flowable:serviceMapping serviceModelKey="genericEsignService" operationKey="createEnvelope"></flowable:serviceMapping>
+        <flowable:inputParameter name="signerName" value="${account.name}"></flowable:inputParameter>
+        <flowable:inputParameter name="signerEmail" value="${signerEmail}"></flowable:inputParameter>
+        <flowable:inputParameter name="accountId" value="${account.accounts[0].accountId}"></flowable:inputParameter>
+        <flowable:inputParameter name="documentName" value="Test_Document"></flowable:inputParameter>
+        <flowable:inputParameter name="documentContent" value="${encodedDocument}"></flowable:inputParameter>
+        <flowable:outputParameter name="envelopeId" value="envelopeId"></flowable:outputParameter>
+        <flowable:outputParameter name="status" value="eSignStatus"></flowable:outputParameter>
+        <design:stencilid><![CDATA[ServiceRegistryTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="ServiceRegistryTask_13" name="Get Documents" flowable:delegateExpression="${serviceRegistryService}" flowable:type="service-registry" flowable:extensionId="ServiceRegistryTask">
+      <extensionElements>
+        <flowable:serviceMapping serviceModelKey="genericEsignService" operationKey="listEnvelopeDocuments"></flowable:serviceMapping>
+        <flowable:inputParameter name="envelopeId" value="${envelopeId}"></flowable:inputParameter>
+        <flowable:outputParameter name="documents" value="signedDocs"></flowable:outputParameter>
+        <design:stencilid><![CDATA[ServiceRegistryTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="ServiceRegistryTask_24" name="Get Status" flowable:asyncLeave="true" flowable:delegateExpression="${serviceRegistryService}" flowable:type="service-registry" flowable:extensionId="ServiceRegistryTask">
+      <extensionElements>
+        <flowable:serviceMapping serviceModelKey="genericEsignService" operationKey="getEnvelopeStatus"></flowable:serviceMapping>
+        <flowable:inputParameter name="envelopeId" value="${envelopeId}"></flowable:inputParameter>
+        <flowable:outputParameter name="status" value="eSignStatus"></flowable:outputParameter>
+        <design:stencilid><![CDATA[ServiceRegistryTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[ServiceTask]]></design:stencilsuperid>
+      </extensionElements>
+    </serviceTask>
+    <userTask id="FormTask_28" name="Process Status (testing)" flowable:assignee="${initiator}" flowable:formKey="nWMUpdateESignStatusToDemoClientDeclined" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+        <design:stencilid><![CDATA[FormTask]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="Exclusive_Databased_Gateway_10" default="SequenceFlow_14">
+      <extensionElements>
+        <design:stencilid><![CDATA[Exclusive_Databased_Gateway]]></design:stencilid>
+      </extensionElements>
+    </exclusiveGateway>
+    <startEvent id="startnoneevent1" flowable:initiator="initiator" flowable:formKey="genericTestESignStartForm" flowable:formFieldValidation="false">
+      <extensionElements>
+        <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>
+        <design:stencilid><![CDATA[StartNoneEvent]]></design:stencilid>
+      </extensionElements>
+    </startEvent>
+    <intermediateCatchEvent id="IntermediateTimerEvent_8" name="Wait for check status">
+      <extensionElements>
+        <design:stencilid><![CDATA[IntermediateTimerEvent]]></design:stencilid>
+        <design:display_ref_in_diagram><![CDATA[true]]></design:display_ref_in_diagram>
+      </extensionElements>
+      <timerEventDefinition>
+        <timeDuration>PT0M10S</timeDuration>
+      </timerEventDefinition>
+    </intermediateCatchEvent>
+    <endEvent id="EndNoneEvent_24">
+      <extensionElements>
+        <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>
+      </extensionElements>
+    </endEvent>
+    <endEvent id="EndNoneEvent_25" name="Declined">
+      <extensionElements>
+        <design:stencilid><![CDATA[EndNoneEvent]]></design:stencilid>
+        <design:display_ref_in_diagram><![CDATA[true]]></design:display_ref_in_diagram>
+      </extensionElements>
+    </endEvent>
+    <sequenceFlow id="SequenceFlow_23" sourceRef="ExpandedSubProcess_15" targetRef="EndNoneEvent_24">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_5" sourceRef="ServiceRegistryTask_3" targetRef="ServiceTask_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_7" sourceRef="ServiceTask_3" targetRef="ServiceRegistryTask_6">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_9" sourceRef="ServiceRegistryTask_6" targetRef="IntermediateTimerEvent_8">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_16" sourceRef="ServiceRegistryTask_13" targetRef="ExpandedSubProcess_15">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_30" sourceRef="ServiceRegistryTask_24" targetRef="FormTask_28">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_29" sourceRef="FormTask_28" targetRef="Exclusive_Databased_Gateway_10">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_12" sourceRef="Exclusive_Databased_Gateway_10" targetRef="IntermediateTimerEvent_8">
+      <extensionElements>
+        <flowable:condition group="true" match="any" targetAttribute="condition">
+          <flowable:condition sourceVariableType="variable" sourceName="eSignStatus" operator="equals" targetVariableType="value" targetValue="created" targetType="string"></flowable:condition>
+          <flowable:condition sourceVariableType="customVariable" sourceName="eSignStatus" sourceType="null" operator="equals" targetVariableType="value" targetValue="pending" targetType="string"></flowable:condition>
+        </flowable:condition>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${vars:equals(eSignStatus, 'created') || vars:equals(eSignStatus, 'pending')}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_14" sourceRef="Exclusive_Databased_Gateway_10" targetRef="ServiceRegistryTask_13">
+      <extensionElements>
+        <flowable:is-default-flow><![CDATA[true]]></flowable:is-default-flow>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_28" sourceRef="Exclusive_Databased_Gateway_10" targetRef="EndNoneEvent_25">
+      <extensionElements>
+        <flowable:condition group="true" match="all" targetAttribute="condition">
+          <flowable:condition sourceVariableType="variable" sourceName="eSignStatus" operator="equals" targetVariableType="value" targetValue="declined" targetType="string"></flowable:condition>
+        </flowable:condition>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${vars:equals(eSignStatus, 'declined')}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_4" sourceRef="startnoneevent1" targetRef="ServiceRegistryTask_3">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_11" sourceRef="IntermediateTimerEvent_8" targetRef="ServiceRegistryTask_24">
+      <extensionElements>
+        <design:stencilid><![CDATA[SequenceFlow]]></design:stencilid>
+      </extensionElements>
+    </sequenceFlow>
+    <textAnnotation id="TextAnnotation_1">
+      <extensionElements>
+        <design:stencilid><![CDATA[TextAnnotation]]></design:stencilid>
+        <design:text><![CDATA[signerEmail
+document]]></design:text>
+      </extensionElements>
+      <text>signerEmail
+document</text>
+    </textAnnotation>
+    <association id="AssociationUndirected_2" sourceRef="TextAnnotation_1" targetRef="startnoneevent1" associationDirection="None">
+      <extensionElements>
+        <design:stencilid><![CDATA[AssociationUndirected]]></design:stencilid>
+        <design:stencilsuperid><![CDATA[Association_Undirected]]></design:stencilsuperid>
+      </extensionElements>
+    </association>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_nWMGenericEsignProcess">
+    <bpmndi:BPMNPlane bpmnElement="nWMGenericEsignProcess" id="BPMNPlane_nWMGenericEsignProcess">
+      <bpmndi:BPMNShape bpmnElement="ExpandedSubProcess_15" id="BPMNShape_ExpandedSubProcess_15">
+        <omgdc:Bounds height="188.0" width="552.0" x="1922.0" y="182.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ServiceRegistryTask_17" id="BPMNShape_ServiceRegistryTask_17">
+        <omgdc:Bounds height="80.0" width="100.0" x="2052.0" y="233.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="CreateDocumentTask_17" id="BPMNShape_CreateDocumentTask_17">
+        <omgdc:Bounds height="80.0" width="100.0" x="2239.0" y="233.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="StartNoneEvent_17" id="BPMNShape_StartNoneEvent_17">
+        <omgdc:Bounds height="30.0" width="30.0" x="1956.0" y="258.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndNoneEvent_20" id="BPMNShape_EndNoneEvent_20">
+        <omgdc:Bounds height="28.0" width="28.0" x="2398.0" y="259.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ServiceRegistryTask_3" id="BPMNShape_ServiceRegistryTask_3">
+        <omgdc:Bounds height="80.0" width="100.0" x="541.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ServiceTask_3" id="BPMNShape_ServiceTask_3">
+        <omgdc:Bounds height="80.0" width="100.0" x="692.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ServiceRegistryTask_6" id="BPMNShape_ServiceRegistryTask_6">
+        <omgdc:Bounds height="80.0" width="100.0" x="871.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ServiceRegistryTask_13" id="BPMNShape_ServiceRegistryTask_13">
+        <omgdc:Bounds height="80.0" width="100.0" x="1731.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ServiceRegistryTask_24" id="BPMNShape_ServiceRegistryTask_24">
+        <omgdc:Bounds height="80.0" width="100.0" x="1196.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="FormTask_28" id="BPMNShape_FormTask_28">
+        <omgdc:Bounds height="80.0" width="100.0" x="1390.0" y="236.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Exclusive_Databased_Gateway_10" id="BPMNShape_Exclusive_Databased_Gateway_10">
+        <omgdc:Bounds height="40.0" width="40.0" x="1622.0" y="256.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startnoneevent1" id="BPMNShape_startnoneevent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="295.0" y="261.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="IntermediateTimerEvent_8" id="BPMNShape_IntermediateTimerEvent_8">
+        <omgdc:Bounds height="30.0" width="30.0" x="1056.0" y="261.0"></omgdc:Bounds>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="18.0" width="117.0" x="1012.0" y="295.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndNoneEvent_24" id="BPMNShape_EndNoneEvent_24">
+        <omgdc:Bounds height="28.0" width="28.0" x="2750.0" y="262.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndNoneEvent_25" id="BPMNShape_EndNoneEvent_25">
+        <omgdc:Bounds height="28.0" width="28.0" x="1628.0" y="488.0"></omgdc:Bounds>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="18.0" width="48.0" x="1618.0" y="520.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TextAnnotation_1" id="BPMNShape_TextAnnotation_1">
+        <omgdc:Bounds height="50.0" width="120.0" x="531.0" y="117.5"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_16" id="BPMNEdge_SequenceFlow_16" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="276.0" flowable:targetDockerY="94.0">
+        <omgdi:waypoint x="1831.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1922.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_28" id="BPMNEdge_SequenceFlow_28" flowable:sourceDockerX="20.0" flowable:sourceDockerY="20.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="1642.0" y="296.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1642.0" y="488.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_18" id="BPMNEdge_SequenceFlow_18" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="1986.0" y="273.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2052.0" y="273.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_29" id="BPMNEdge_SequenceFlow_29" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="20.0" flowable:targetDockerY="20.0">
+        <omgdi:waypoint x="1490.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1622.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_11" id="BPMNEdge_SequenceFlow_11" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="1086.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1196.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="AssociationUndirected_2" id="BPMNEdge_AssociationUndirected_2" flowable:sourceDockerX="60.0" flowable:sourceDockerY="25.0" flowable:targetDockerX="15.0" flowable:targetDockerY="15.0">
+        <omgdi:waypoint x="531.0" y="142.0"></omgdi:waypoint>
+        <omgdi:waypoint x="310.0" y="142.0"></omgdi:waypoint>
+        <omgdi:waypoint x="310.0" y="261.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_23" id="BPMNEdge_SequenceFlow_23" flowable:sourceDockerX="276.0" flowable:sourceDockerY="94.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="2474.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2612.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2612.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2750.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_12" id="BPMNEdge_SequenceFlow_12" flowable:sourceDockerX="20.0" flowable:sourceDockerY="20.0" flowable:targetDockerX="15.0" flowable:targetDockerY="15.0">
+        <omgdi:waypoint x="1642.0" y="256.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1642.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1071.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1071.0" y="261.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9" id="BPMNEdge_SequenceFlow_9" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="15.0" flowable:targetDockerY="15.0">
+        <omgdi:waypoint x="971.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1056.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_14" id="BPMNEdge_SequenceFlow_14" flowable:sourceDockerX="20.0" flowable:sourceDockerY="20.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="1662.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1731.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_7" id="BPMNEdge_SequenceFlow_7" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="792.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="871.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_4" id="BPMNEdge_SequenceFlow_4" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="325.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="541.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_5" id="BPMNEdge_SequenceFlow_5" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="641.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="692.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_19" id="BPMNEdge_SequenceFlow_19" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="2152.0" y="273.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2239.0" y="273.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_30" id="BPMNEdge_SequenceFlow_30" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="1296.0" y="276.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1390.0" y="276.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_21" id="BPMNEdge_SequenceFlow_21" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="2339.0" y="273.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2398.0" y="273.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

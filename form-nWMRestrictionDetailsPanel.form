@@ -1,0 +1,35 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-text-area" ],
+        "stencilId" : "cloud-text-area"
+      },
+      "labelAlign" : "top",
+      "value" : "{{$item.description}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "useDelay" : true,
+        "delay" : 200
+      },
+      "size" : 12,
+      "tabIndex" : 0,
+      "label" : "Details",
+      "id" : "text-area1",
+      "type" : "textarea"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "nWMRestrictionDetailsPanel",
+    "name" : "NWM Restriction Details Panel",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "rows" : [ {
+    "cols" : [ {
+      "designInfo" : {
+        "stencilSuperIds" : [ "base-sub-form" ],
+        "stencilId" : "cloud-sub-form"
+      },
+      "labelAlign" : "top",
+      "value" : "{{policy}}",
+      "ignore" : false,
+      "visible" : true,
+      "enabled" : true,
+      "isRequired" : false,
+      "extraSettings" : {
+        "validationPanelDisplay" : "show",
+        "showBorder" : false,
+        "collapsible" : false,
+        "collapsed" : false,
+        "formRef" : "sURPolicyDataSubForm"
+      },
+      "size" : 12,
+      "label" : "Policy Info",
+      "id" : "sub-form1",
+      "type" : "subform"
+    } ]
+  } ],
+  "metadata" : {
+    "key" : "sURPolicyInfoormation",
+    "name" : "SUR policy Infoormation",
+    "description" : null,
+    "version" : "1",
+    "modelType" : "form",
+    "flowableDesignVersion" : 3110,
+    "palette" : "flowable-work-form-palette"
+  }
+}

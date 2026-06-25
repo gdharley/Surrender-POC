@@ -1,0 +1,26 @@
+{
+  "payload" : [ {
+    "name" : "instanceId",
+    "correlationParameter" : true,
+    "header" : false,
+    "isFullPayload" : false,
+    "metaParameter" : false,
+    "type" : "string"
+  }, {
+    "name" : "status",
+    "correlationParameter" : false,
+    "header" : false,
+    "isFullPayload" : false,
+    "metaParameter" : false,
+    "type" : "string"
+  }, {
+    "name" : "notes",
+    "correlationParameter" : false,
+    "header" : false,
+    "isFullPayload" : false,
+    "metaParameter" : false,
+    "type" : "string"
+  } ],
+  "name" : "NWM Fraud Results",
+  "key" : "nWMFraudResults"
+}
