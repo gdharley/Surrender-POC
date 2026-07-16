@@ -503,7 +503,17 @@
     } ],
     "config" : {
       "method" : "GET",
-      "url" : "/policy/policy/${id}"
+      "url" : "/policy/policy/${id}",
+      "mockResponses" : [ {
+        "key" : "getPolicy",
+        "name" : "getPolicy",
+        "responseType" : "response",
+        "statusCode" : 200,
+        "headers" : [ ],
+        "body" : "{\n  \"id\": \"POL-002\",\n  \"policyNumber\": \"NWM-2025-002\",\n  \"type\": \"term-life\",\n  \"status\": \"active\",\n  \"otp_processing_allowed\": false,\n  \"holder\": {\n    \"firstName\": \"Sarah\",\n    \"lastName\": \"Thompson\",\n    \"email\": \"sarah.thompson@example.com\",\n    \"phone\": \"555-0202\",\n    \"dateOfBirth\": \"1985-07-22\"\n  },\n  \"coverage\": {\n    \"faceValue\": 750000,\n    \"cashValue\": 0,\n    \"beneficiary\": {\n      \"name\": \"Mark Thompson\",\n      \"email\": \"mark.thompson@example.com\",\n      \"relationship\": \"spouse\"\n    }\n  },\n  \"term\": {\n    \"type\": \"level-term\",\n    \"years\": 20\n  },\n  \"premium\": {\n    \"monthly\": 58,\n    \"annual\": 696,\n    \"currency\": \"USD\"\n  },\n  \"effectiveDate\": \"2018-09-01\",\n  \"expirationDate\": \"2038-09-01\",\n  \"restrictions\": [\n    {\n      \"typeCode\": \"CL\",\n      \"description\": \"Coverage limit applied. Maximum benefit capped at $750,000 per underwriting guidelines for applicant age and health classification.\",\n      \"effectiveDate\": \"2018-09-01\"\n    }\n  ],\n  \"createdAt\": \"2018-08-10T09:30:00Z\",\n  \"updatedAt\": \"2025-03-01T11:00:00Z\"\n}",
+        "samplingRate" : 100,
+        "priority" : 0
+      } ]
     },
     "type" : "lookup"
   }, {

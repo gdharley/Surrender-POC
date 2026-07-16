@@ -54,9 +54,6 @@
         "key" : "nWMUpdateESignStatusToDemoClientDeclined",
         "type" : "form"
       }, {
-        "key" : "nWMStartNewSurrender",
-        "type" : "action"
-      }, {
         "key" : "sURCaseStartForm",
         "type" : "form"
       }, {
@@ -107,6 +104,9 @@
       }, {
         "key" : "nWMCheckRestrictions",
         "type" : "form"
+      }, {
+        "key" : "nWMStartNewSurrender",
+        "type" : "action"
       } ]
     }
   }

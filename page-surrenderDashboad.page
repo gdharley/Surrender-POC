@@ -68,12 +68,9 @@
               "primary" : false,
               "labelAlign" : "top",
               "enabled" : true,
-              "size" : 5,
+              "size" : 12,
               "id" : "work-action1",
               "type" : "workAction"
-            }, {
-              "size" : 7,
-              "type" : ""
             } ]
           } ]
         }
@@ -475,7 +472,7 @@
     "key" : "surrenderDashboad",
     "name" : "Surrender Dashboad",
     "description" : "",
-    "version" : "1",
+    "version" : "3",
     "modelType" : "page",
     "flowableDesignVersion" : 3110,
     "palette" : "flowable-work-page-palette"

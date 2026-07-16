@@ -99,7 +99,7 @@
     "key" : "nWMUpdateESignStatusToDemoClientDeclined",
     "name" : "NWM Update eSign Status to demo Client Declined",
     "description" : null,
-    "version" : "1",
+    "version" : "2",
     "modelType" : "form",
     "flowableDesignVersion" : 3110,
     "palette" : "flowable-work-form-palette"

@@ -27,7 +27,7 @@
     "key" : "nWMRestrictionDetailsPanel",
     "name" : "NWM Restriction Details Panel",
     "description" : null,
-    "version" : "1",
+    "version" : "2",
     "modelType" : "form",
     "flowableDesignVersion" : 3110,
     "palette" : "flowable-work-form-palette"

@@ -99,7 +99,7 @@
     "key" : "nWMAgentDetails",
     "name" : "NWM Agent Details",
     "description" : null,
-    "version" : "1",
+    "version" : "2",
     "modelType" : "form",
     "flowableDesignVersion" : 3110,
     "palette" : "flowable-work-form-palette"
