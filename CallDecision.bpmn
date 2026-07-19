@@ -4,9 +4,9 @@
     <extensionElements>
       <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>
       <design:creationdate><![CDATA[2026-06-25T21:46:14.406Z]]></design:creationdate>
-      <design:modificationdate><![CDATA[2026-07-19T19:28:02.198Z]]></design:modificationdate>
+      <design:modificationdate><![CDATA[2026-07-19T19:35:24.806Z]]></design:modificationdate>
     </extensionElements>
-    <serviceTask id="DmnTask_1" name="Decision task (GIT)" flowable:type="dmn">
+    <serviceTask id="DmnTask_1" name="Decision task" flowable:type="dmn">
       <extensionElements>
         <flowable:field name="decisionTableReferenceKey">
           <flowable:string><![CDATA[nWmRwstrictions]]></flowable:string>
