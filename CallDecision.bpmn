@@ -4,9 +4,9 @@
     <extensionElements>
       <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>
       <design:creationdate><![CDATA[2026-06-25T21:46:14.406Z]]></design:creationdate>
-      <design:modificationdate><![CDATA[2026-07-02T21:28:29.671Z]]></design:modificationdate>
+      <design:modificationdate><![CDATA[2026-07-19T19:28:02.198Z]]></design:modificationdate>
     </extensionElements>
-    <serviceTask id="DmnTask_1" name="Decision task (Git)" flowable:type="dmn">
+    <serviceTask id="DmnTask_1" name="Decision task (local)" flowable:type="dmn">
       <extensionElements>
         <flowable:field name="decisionTableReferenceKey">
           <flowable:string><![CDATA[nWmRwstrictions]]></flowable:string>
@@ -100,14 +100,14 @@ restrictionsStatus</text>
       <bpmndi:BPMNShape bpmnElement="ScriptTask_1" id="BPMNShape_ScriptTask_1">
         <omgdc:Bounds height="80.0" width="100.0" x="771.0" y="249.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TextAnnotation_1" id="BPMNShape_TextAnnotation_1">
+        <omgdc:Bounds height="50.0" width="120.0" x="551.0" y="145.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="startnoneevent1" id="BPMNShape_startnoneevent1">
         <omgdc:Bounds height="30.0" width="30.0" x="427.0" y="274.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="EndNoneEvent_1" id="BPMNShape_EndNoneEvent_1">
         <omgdc:Bounds height="28.0" width="28.0" x="988.0" y="275.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="TextAnnotation_1" id="BPMNShape_TextAnnotation_1">
-        <omgdc:Bounds height="50.0" width="120.0" x="551.0" y="145.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="AssociationUndirected_2" id="BPMNEdge_AssociationUndirected_2" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="60.0" flowable:targetDockerY="25.0">
         <omgdi:waypoint x="442.0" y="274.0"></omgdi:waypoint>
