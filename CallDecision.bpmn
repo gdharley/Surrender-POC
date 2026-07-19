@@ -6,7 +6,7 @@
       <design:creationdate><![CDATA[2026-06-25T21:46:14.406Z]]></design:creationdate>
       <design:modificationdate><![CDATA[2026-07-02T21:28:29.671Z]]></design:modificationdate>
     </extensionElements>
-    <serviceTask id="DmnTask_1" name="Decision task" flowable:type="dmn">
+    <serviceTask id="DmnTask_1" name="Decision task (git)" flowable:type="dmn">
       <extensionElements>
         <flowable:field name="decisionTableReferenceKey">
           <flowable:string><![CDATA[nWmRwstrictions]]></flowable:string>
