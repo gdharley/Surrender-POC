@@ -4,7 +4,7 @@
     <extensionElements>
       <design:stencilid><![CDATA[BPMNDiagram]]></design:stencilid>
       <design:creationdate><![CDATA[2026-06-25T21:46:14.406Z]]></design:creationdate>
-      <design:modificationdate><![CDATA[2026-07-20T15:42:32.480Z]]></design:modificationdate>
+      <design:modificationdate><![CDATA[2026-07-20T15:45:07.978Z]]></design:modificationdate>
     </extensionElements>
     <serviceTask id="DmnTask_1" name="Is Bypassable" flowable:type="dmn">
       <extensionElements>
@@ -32,7 +32,7 @@
         </extensionElements>
       </multiInstanceLoopCharacteristics>
     </serviceTask>
-    <scriptTask id="ScriptTask_1" name="Correlate" scriptFormat="javascript" flowable:autoStoreVariables="false">
+    <scriptTask id="ScriptTask_1" name="Correlate (test)" scriptFormat="javascript" flowable:autoStoreVariables="false">
       <extensionElements>
         <flowable:in source="canBypassArray" target="canBypassArray"></flowable:in>
         <design:stencilid><![CDATA[ScriptTask]]></design:stencilid>
